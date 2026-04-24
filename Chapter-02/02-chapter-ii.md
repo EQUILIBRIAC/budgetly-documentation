@@ -166,6 +166,7 @@ Entrevista 7:
 
 
 ## 2.3. Needfinding
+
 A partir del análisis de entrevistas y del Lean UX Canvas presentado en el capítulo 1, se identificaron las principales necesidades y motivaciones de los segmentos objetivo. Los hallazgos confirman los problemas detectados en el Canvas: la falta de equidad en la distribución de gastos, la poca transparencia y la ausencia de herramientas colaborativas adaptadas a la realidad económica de cada hogar.
 
 De esta manera, se presentan a continuación los hallazgos clave que guiarán el desarrollo de la solución
@@ -281,7 +282,7 @@ Harmonix automatiza los pasos, centraliza información y genera reportes automá
 
 ---
 
-### 2.4 Ubiquitous Language
+## 2.4 Ubiquitous Language
 
 En esta sección se presenta el *Ubiquitous Language* definido para **Harmonix**, el cual unifica la terminología utilizada por el equipo de desarrollo, los diseñadores y los usuarios.  
 Su propósito es garantizar una comprensión común del dominio, evitando ambigüedades en la comunicación y manteniendo la coherencia entre los artefactos de diseño, los modelos de datos y la experiencia de usuario.
