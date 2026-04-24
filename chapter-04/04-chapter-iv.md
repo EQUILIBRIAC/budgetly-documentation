@@ -772,3 +772,4 @@ Se incluyen índices para optimizar el rendimiento de consultas frecuentes:
 <p styles="align: left">
   <img src="/assets/chapter-04/DB-D.png" alt="" width="500">  
 </p>  
+
