@@ -207,3 +207,79 @@ namespace com.split.backend.Tests.SystemTests
     }
 }
 ```
+
+## 6.2. Static testing & Verification
+
+Contenido pendiente.
+
+### 6.2.1. Static Code Analysis
+
+Contenido pendiente.
+
+#### 6.2.1.1. Coding standard & Code conventions.
+
+Contenido pendiente.
+
+#### 6.2.1.2. Code Quality & Code Security.
+
+Contenido pendiente.
+
+### 6.2.2. Reviews
+
+Contenido pendiente.
+
+## 6.3. Validation Interviews.
+
+Contenido pendiente.
+
+### 6.3.1. Diseño de Entrevistas.
+
+Contenido pendiente.
+
+### 6.3.2. Registro de Entrevistas.
+
+Contenido pendiente.
+
+### 6.3.3. Evaluaciones según heurísticas.
+
+Contenido pendiente.
+
+## 6.4. Auditoría de Experiencias de Usuario
+
+Contenido pendiente.
+
+### 6.4.1. Auditoría realizada.
+
+Contenido pendiente.
+
+#### 6.4.1.1. Información del grupo auditado.
+
+Contenido pendiente.
+
+#### 6.4.1.2. Cronograma de auditoría realizada.
+
+Contenido pendiente.
+
+#### 6.4.1.3. Contenido de auditoría realizada.
+
+Contenido pendiente.
+
+### 6.4.2. Auditoría recibida.
+
+Contenido pendiente.
+
+#### 6.4.2.1. Información del grupo auditor.
+
+Contenido pendiente.
+
+#### 6.4.2.2. Cronograma de auditoría recibida.
+
+Contenido pendiente.
+
+#### 6.4.2.3. Contenido de auditoría recibida.
+
+Contenido pendiente.
+
+#### 6.4.2.4. Resumen de modificaciones para subsanar hallazgos.
+
+Contenido pendiente.

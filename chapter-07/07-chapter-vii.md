@@ -169,3 +169,23 @@ Como resultado, la solución Budgetly quedó integrada con una estrategia de CI/
 
 Esta arquitectura de automatización mejora la calidad de entrega, simplifica el mantenimiento y fortalece la trazabilidad del proceso de desarrollo.
 
+## 7.4. Continuous Monitoring
+
+Contenido pendiente.
+
+### 7.4.1. Tools and Practices
+
+Contenido pendiente.
+
+### 7.4.2. Monitoring Pipeline Components
+
+Contenido pendiente.
+
+### 7.4.3. Alerting Pipeline Components
+
+Contenido pendiente.
+
+### 7.4.4. Notification Pipeline Components.
+
+Contenido pendiente.
+
