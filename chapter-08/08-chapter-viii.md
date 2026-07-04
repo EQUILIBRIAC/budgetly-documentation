@@ -822,15 +822,346 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 
 ### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
 
-*Contenido pendiente.*
+La aplicación móvil nativa de **Budgetly** se implementó con **Flutter (Dart 3.x)** para Android e iOS, consumiendo la API RESTful desplegada en Azure. La estructura del código sigue una arquitectura por capas alineada con **Domain-Driven Design (DDD)**, separando presentación, aplicación, dominio e infraestructura por bounded contexts (IAM, Households, Incomes, Bills, Contributions). El release To-Be materializa el **tratamiento del Grupo B** del experimento definido en la sección 8.3: permitir a representantes y miembros del hogar registrar ingresos, activar el reparto proporcional **IncomeBased**, consultar el desglose de aportes por gasto y confirmar pagos desde el dispositivo móvil.
+
+#### Stack tecnológico y arquitectura
+
+| Componente | Tecnología / práctica |
+|------------|----------------------|
+| Framework móvil | Flutter (Dart) |
+| Plataformas objetivo | Android e iOS |
+| Arquitectura | DDD por capas (presentation / application / domain / infrastructure) |
+| Comunicación | HTTP REST + JWT (Authorization: Bearer) |
+| API consumida | ASP.NET Core 9 desplegada en Azure |
+| Análisis estático | flutter analyze con flutter_lints (*Effective Dart*) |
+| Analytics (plan 8.2.8) | Firebase Analytics (firebase_analytics) |
+| Control de versiones | Git + GitFlow en GitHub |
+
+La capa de **presentación** expone pantallas por rol (Representante / Miembro) con navegación inferior persistente (Inicio, Hogares, Miembros, Gastos, Aportes, Ajustes). La capa de **aplicación** orquesta casos de uso To-Be; la de **dominio** encapsula reglas de negocio; y la de **infraestructura** implementa clientes HTTP hacia los endpoints documentados en el Capítulo V.
+
+#### Alcance To-Be implementado y trazabilidad
+
+Las funcionalidades móviles del release To-Be se derivan de las historias **US-TB-01 a US-TB-04** (sección 8.3.1) y del backlog **PB-TB-001 a PB-TB-010** (sección 8.3.2). La siguiente tabla resume la trazabilidad entre historia, ítems de backlog y evidencia visual:
+
+<table border="1">
+<tr><th>Historia To-Be</th><th>Funcionalidad móvil</th><th>Ítems PB-TB</th><th>Evidencia (capturas)</th></tr>
+<tr><td>US-TB-01</td><td>Registro y actualización de ingreso mensual por miembro</td><td>PB-TB-001, PB-TB-002, PB-TB-003</td><td>Flujo 2 — Registro de ingresos</td></tr>
+<tr><td>US-TB-02</td><td>Activación de estrategia IncomeBased en el hogar</td><td>PB-TB-004, PB-TB-005, PB-TB-006</td><td>Flujo 3 — Configuración IncomeBased</td></tr>
+<tr><td>US-TB-03</td><td>Visualización del desglose de contribución por gasto</td><td>PB-TB-007, PB-TB-008, PB-TB-016</td><td>Flujo 3 — Desglose en Aportes y detalle de gasto</td></tr>
+<tr><td>US-TB-04</td><td>Marcado de contribución como pagada y seguimiento de avance</td><td>PB-TB-009, PB-TB-010</td><td>Flujo 4 — Pagos del gasto</td></tr>
+</table>
+
+Adicionalmente, el flujo de **autenticación** (Login y registro con selección de rol) habilita el acceso diferenciado por Representante o Miembro, prerrequisito de todos los flujos To-Be anteriores.
+
+#### Evidencia de Versionado (Control de Código)
+
+El código fuente de la Mobile App se aloja en GitHub bajo control de versiones Git, con integración de cambios mediante Pull Requests y estrategia de ramificación **GitFlow** (main, develop y ramas feature/*). Los releases To-Be se integran a develop y se promueven a main tras revisión del equipo.
+
+Repositorio: https://github.com/EQUILIBRIAC/Budgetly-MobileApp
+
+#### Integración con la API RESTful
+
+La Mobile App consume los endpoints del backend desplegado en Azure. Los flujos To-Be documentados utilizan principalmente los siguientes recursos:
+
+<table border="1">
+<tr><th>Flujo To-Be</th><th>Endpoint(s) consumido(s)</th><th>Método</th></tr>
+<tr><td>Login / Registro</td><td><code>/api/v1/authentication/sign-in</code>, <code>/api/v1/authentication/sign-up</code></td><td>POST</td></tr>
+<tr><td>Registro de ingresos (US-TB-01)</td><td><code>/api/v1/user_income</code>, <code>/api/v1/user_income/byid/{id}</code>, <code>/api/v1/household_member/household/{householdId}</code></td><td>POST, PUT, GET</td></tr>
+<tr><td>Activar IncomeBased (US-TB-02)</td><td><code>/api/v1/house_hold/{Id}</code> (estrategia del hogar)</td><td>PUT</td></tr>
+<tr><td>Consultar gastos y aportes (US-TB-03)</td><td><code>/api/v1/bills/byhousehold/{householdId}</code>, <code>/api/v1/contribution/byhouseholdid/{householdId}</code>, <code>/api/v1/member_contribution/bycontributionid/{contributionId}</code></td><td>GET</td></tr>
+<tr><td>Marcar contribución pagada (US-TB-04)</td><td><code>/api/v1/member_contribution/{id}</code> (actualización de estado)</td><td>PUT</td></tr>
+</table>
+
+Documentación Swagger del backend: https://budgetly-api-dev-dxcfedfvdxeebad5.chilecentral-01.azurewebsites.net/swagger/index.html
+
+#### Evidencia de Interfaz y Funcionalidad (Screenshots)
+
+**1. Login**
+
+Pantalla de autenticación que valida credenciales contra el endpoint `/api/v1/authentication/sign-in` y enruta al dashboard según el rol del usuario (Representante o Miembro). Incluye registro con selección de tipo de cuenta.
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-login2.png" alt="Vista de Login — Sign In" width="400"/>
+	<img src="../assets/chapter-08/mobile-login1.png" alt="Vista de Login — Create Account" width="400"/>
+</p>
+
+**2. Registro de ingresos de miembros**
+
+Vista del representante para registrar o actualizar el ingreso mensual de cada miembro del hogar; los datos se persisten en la API y habilitan el cálculo proporcional IncomeBased. Se muestra el total de ingresos declarados del hogar y la acción **Guardar ingreso** por miembro.
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-mobile1.png" alt="Vista de Registro de ingresos — resumen del hogar" width="400"/>
+	<img src="../assets/chapter-08/mobile-ingresos2.png" alt="Vista de Registro de ingresos — edición por miembro" width="400"/>
+	<img src="../assets/chapter-08/mobile-ingresos3.png" alt="Vista de Registro de ingresos — listado de miembros" width="400"/>
+</p>
+
+**3. Configuración IncomeBased y desglose de contribuciones**
+
+Pantalla de configuración del hogar donde se activa la estrategia IncomeBased con resumen de porcentajes por miembro, listado de gastos del hogar y vista de aportes con desglose proporcional (ej. luz S/ 240 repartida como S/ 100 / S/ 60 / S/ 50 / S/ 30 según ingresos S/ 5 000 / S/ 3 000 / S/ 2 500 / S/ 1 500).
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-incomebased1.png" alt="Vista de Configuración IncomeBased — activación del reparto proporcional" width="400"/>
+	<img src="../assets/chapter-08/mobile-incomebased4.png" alt="Vista de Gastos del hogar — facturas registradas" width="400"/>
+	<img src="../assets/chapter-08/mobile-incomebased2.png" alt="Vista de Aportes — desglose IncomeBased por miembro" width="400"/>
+	<img src="../assets/chapter-08/mobile-incomebased3.png" alt="Vista de Aportes — desglose de facturas Agua y Gas" width="400"/>
+</p>
+
+**4. Marcado de contribución como pagada**
+
+Interfaz del representante para acceder a los pagos de un gasto, consultar el desglose IncomeBased y cambiar el estado de una contribución de **Pendiente** a **Pagada**, reflejando el avance del gasto compartido en tiempo real (barra de progreso y porcentaje completado).
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-contribucion-pagada3.png" alt="Vista de Gastos — acceso a pagos y desglose" width="400"/>
+	<img src="../assets/chapter-08/mobile-contribucion-pagada1.png" alt="Vista de Pagos del gasto — contribuciones pendientes" width="400"/>
+	<img src="../assets/chapter-08/mobile-contribucion-pagada2.png" alt="Vista de desglose IncomeBased del gasto Agua" width="400"/>
+	<img src="../assets/chapter-08/mobile-contribucion-pagada4.png" alt="Vista de Pagos del gasto — contribuciones marcadas como pagadas" width="400"/>
+</p>
+
+#### Validación (Quality Engineering)
+
+Las vistas documentadas fueron verificadas mediante las siguientes actividades de calidad, alineadas al Capítulo VI y al experimento To-Be:
+
+| Actividad | Herramienta / método | Resultado |
+|-----------|---------------------|-----------|
+| Análisis estático | `flutter analyze` (`flutter_lints`) | Cumplimiento de *Effective Dart* antes de integrar cambios |
+| Pruebas de integración | Consumo de API RESTful en entorno Azure | Flujos US-TB-01 a US-TB-04 operativos desde la app móvil |
+| Escenarios BDD | Historias US-TB-01 a US-TB-04 (sección 8.3.1) | Rutas feliz, triste y alternativa cubiertas en backend; UI refleja estados esperados |
+| Validación del experimento | Escenario IncomeBased del Cap. VI y 8.3 | Desglose proporcional coherente con la lógica validada (ej. reparto S/ 240 / S/ 384 / S/ 576 para el escenario de 3 miembros; reparto S/ 100 / S/ 60 / S/ 50 / S/ 30 para luz S/ 240 con 4 miembros en las capturas) |
+| Revisión por pares | Pull Requests en GitHub | Cambios To-Be integrados bajo GitFlow con revisión del equipo |
+
+Los flujos críticos —registro de ingresos, activación de IncomeBased, visualización de desglose y confirmación de pagos— consumen correctamente los endpoints del backend y mantienen consistencia con la lógica de negocio validada en el Capítulo VI, habilitando el uso de la Mobile App como canal del **Grupo B** en el experimento controlado de la sección 8.3.
 
 ### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
 
-*Contenido pendiente.*
+#### Resumen de Arquitectura y Despliegue
+
+El backend To-Be de **Budgetly** se implementó con **ASP.NET Core 9 (C#)** bajo un **monolito modular** organizado por **Domain-Driven Design (DDD)**. Cada bounded context expone controladores REST independientes bajo el prefijo versionado /api/v1/, con autenticación **JWT Bearer** en rutas protegidas (ícono de candado en Swagger). La persistencia usa **Entity Framework Core** sobre base de datos relacional. El flujo de entrega integra **GitFlow** (main, develop, feature/*), pipeline **GitHub Actions** (dotnet restore, dotnet build, dotnet test, dotnet publish), empaquetado **Docker** en **GHCR** y despliegue en **Azure Web App** (Chile Central). Los clientes Web (Vue.js), Mobile (Flutter) y el experimento To-Be (Grupo B) consumen la misma instancia desplegada.
+
+#### Bounded Contexts y Controladores Implementados
+
+<table border="1">
+<tr><th>Bounded Context</th><th>Controlador Swagger</th><th>Responsabilidad To-Be</th><th>Historia US-TB</th></tr>
+<tr><td>IAM</td><td>Authentication, User</td><td>Registro, login JWT y gestión de perfiles por rol</td><td>Prerrequisito</td></tr>
+<tr><td>Households</td><td>HouseHold, HouseholdMember, Invitation</td><td>Creación de hogar, membresía, invitaciones y roles</td><td>Prerrequisito</td></tr>
+<tr><td>Incomes</td><td>UserIncome</td><td>Registro y actualización de ingreso mensual por miembro</td><td>US-TB-01</td></tr>
+<tr><td>Allocations</td><td>IncomeAllocation, HouseHold (estrategia)</td><td>Configuración y cálculo IncomeBased por porcentaje de ingreso</td><td>US-TB-02</td></tr>
+<tr><td>Bills</td><td>Bills</td><td>Registro y consulta de facturas compartidas del hogar</td><td>US-TB-03</td></tr>
+<tr><td>Contributions</td><td>Contribution, MemberContribution</td><td>Desglose de aportes por miembro y marcado de pagos</td><td>US-TB-03, US-TB-04</td></tr>
+<tr><td>Settings</td><td>Settings</td><td>Preferencias de usuario (idioma, moneda, notificaciones)</td><td>Operación</td></tr>
+</table>
+
+#### Evidencia de Versionado
+
+Repositorio: https://github.com/EQUILIBRIAC/Budgetly-BackEnd
+
+Los releases To-Be se integran mediante Pull Requests hacia develop y se promueven a main tras revisión del equipo. Cada imagen Docker publicada en GHCR se etiqueta con el hash del commit desplegado, lo que permite trazar qué versión del backend alimenta el experimento del Grupo B.
+
+#### Documentación y Consumo de la API
+
+La API expone una interfaz RESTful documentada con **Swagger/OpenAPI** en el entorno Azure. URL de consulta interactiva:
+
+https://budgetly-api-dev-dxcfedfvdxeebad5.chilecentral-01.azurewebsites.net/swagger/index.html
+
+A continuación se detallan los controladores implementados, agrupados por bounded context. Todos los endpoints protegidos requieren header Authorization: Bearer {token} obtenido desde sign-in.
+
+**1. Authentication (IAM)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/authentication/sign-in</td><td>Valida credenciales y retorna JWT</td></tr>
+<tr><td>POST</td><td>/api/v1/authentication/sign-up</td><td>Registra usuario con rol Representante o Miembro</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-auth-user.png" alt="Swagger — Authentication y User" width="700"/>
+</p>
+
+**2. User (IAM)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/user/user/{id}</td><td>Obtiene usuario por Id</td></tr>
+<tr><td>GET</td><td>/api/v1/user</td><td>Lista todos los usuarios</td></tr>
+<tr><td>GET</td><td>/api/v1/user/householdid/{mainHouseHoldId}</td><td>Obtiene usuarios asociados a un hogar</td></tr>
+<tr><td>PUT</td><td>/api/v1/user/byemail/{emailAddress}</td><td>Actualiza perfil por email</td></tr>
+<tr><td>DELETE</td><td>/api/v1/user/byemail/{email}</td><td>Elimina usuario por email</td></tr>
+</table>
+
+**3. UserIncome (Incomes — US-TB-01)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/user-income</td><td>Crea ingreso mensual de un miembro</td></tr>
+<tr><td>GET</td><td>/api/v1/user-income/{id}</td><td>Obtiene ingreso por Id</td></tr>
+<tr><td>GET</td><td>/api/v1/user-income/byuserid/{userId}</td><td>Lista ingresos de un usuario</td></tr>
+<tr><td>PUT</td><td>/api/v1/user-income/byid/{id}</td><td>Actualiza monto; dispara recálculo IncomeBased</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-income-contribution.png" alt="Swagger — UserIncome y Contribution" width="700"/>
+</p>
+
+**4. Contribution (Contributions — US-TB-03)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/contribution</td><td>Lista todas las contribuciones</td></tr>
+<tr><td>POST</td><td>/api/v1/contribution</td><td>Crea contribución asociada a una factura</td></tr>
+<tr><td>GET</td><td>/api/v1/contribution/{id}</td><td>Obtiene contribución por Id</td></tr>
+<tr><td>DELETE</td><td>/api/v1/contribution/{id}</td><td>Elimina contribución</td></tr>
+<tr><td>GET</td><td>/api/v1/contribution/bybillid/{billId}</td><td>Contribuciones de una factura</td></tr>
+<tr><td>GET</td><td>/api/v1/contribution/byhouseholdid/{householdId}</td><td>Contribuciones del hogar</td></tr>
+<tr><td>PUT</td><td>/api/v1/contribution/byid/{id}</td><td>Actualiza contribución</td></tr>
+</table>
+
+**5. Bills (Bills — US-TB-03)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/bills</td><td>Lista todas las facturas</td></tr>
+<tr><td>POST</td><td>/api/v1/bills</td><td>Registra nueva factura compartida</td></tr>
+<tr><td>GET</td><td>/api/v1/bills/byhousehold/{householdId}</td><td>Facturas de un hogar</td></tr>
+<tr><td>PUT</td><td>/api/v1/bills/byid/{id}</td><td>Actualiza factura</td></tr>
+<tr><td>DELETE</td><td>/api/v1/bills/{id}</td><td>Elimina factura</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-contribution-bills.png" alt="Swagger — Contribution y Bills" width="700"/>
+</p>
+
+**6. HouseHold (Households — US-TB-02)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/house_hold/{id}</td><td>Consulta hogar y estrategia de reparto</td></tr>
+<tr><td>PUT</td><td>/api/v1/house_hold/{id}</td><td>Actualiza hogar; activa IncomeBased</td></tr>
+<tr><td>POST</td><td>/api/v1/house_hold</td><td>Crea nuevo hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/house_hold/representative/{representativeId}</td><td>Hogares de un representante</td></tr>
+</table>
+
+**7. HouseholdMember (Households)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/household_member</td><td>Agrega miembro al hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member</td><td>Lista todos los miembros</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/{id}</td><td>Obtiene miembro por Id</td></tr>
+<tr><td>PUT</td><td>/api/v1/household_member/{id}</td><td>Actualiza miembro</td></tr>
+<tr><td>DELETE</td><td>/api/v1/household_member/{id}</td><td>Elimina miembro</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/household/{householdId}</td><td>Miembros de un hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/household/{householdId}/detailed</td><td>Miembros con ingresos y porcentajes</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/user/{userId}</td><td>Membresías de un usuario</td></tr>
+<tr><td>POST</td><td>/api/v1/household_member/{id}/promote-representative</td><td>Promueve miembro a representante</td></tr>
+<tr><td>POST</td><td>/api/v1/household_member/{id}/demote-representative</td><td>Degrada representante</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-household-member.png" alt="Swagger — HouseHold y HouseholdMember" width="700"/>
+</p>
+
+**8. IncomeAllocation (Allocations — US-TB-02)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/income_allocation/byhousehold/{householdId}</td><td>Porcentajes IncomeBased del hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/income_allocation/byuserid/{userId}</td><td>Asignaciones de un usuario</td></tr>
+<tr><td>POST</td><td>/api/v1/income_allocation</td><td>Crea asignación de ingreso</td></tr>
+<tr><td>PUT</td><td>/api/v1/income_allocation/byid/{id}</td><td>Actualiza porcentaje de asignación</td></tr>
+<tr><td>DELETE</td><td>/api/v1/income_allocation/{id}</td><td>Elimina asignación</td></tr>
+</table>
+
+**9. Settings**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/settings</td><td>Obtiene configuración del usuario autenticado</td></tr>
+<tr><td>POST</td><td>/api/v1/settings</td><td>Crea preferencias (idioma, moneda, notificaciones)</td></tr>
+<tr><td>PUT</td><td>/api/v1/settings/{id}</td><td>Actualiza configuración</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-allocation-settings.png" alt="Swagger — IncomeAllocation y Settings" width="700"/>
+</p>
+
+**10. MemberContribution (Contributions — US-TB-04)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/member_contribution</td><td>Lista aportes individuales por miembro</td></tr>
+<tr><td>POST</td><td>/api/v1/member_contribution</td><td>Crea aporte de miembro</td></tr>
+<tr><td>GET</td><td>/api/v1/member_contribution/bycontributionid/{contributionId}</td><td>Desglose por miembro de una contribución</td></tr>
+<tr><td>GET</td><td>/api/v1/member_contribution/bymemberid/{memberId}</td><td>Aportes pendientes/pagados de un miembro</td></tr>
+<tr><td>PUT</td><td>/api/v1/member_contribution/{id}</td><td>Marca aporte como Pagada (Pendiente → Pagada)</td></tr>
+<tr><td>DELETE</td><td>/api/v1/member_contribution/{id}</td><td>Elimina aporte de miembro</td></tr>
+</table>
+
+**11. Invitation (Households)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/invitations</td><td>Envía invitación a unirse al hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/invitations/pending</td><td>Consulta invitaciones pendientes por email+hogar</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-membercontribution-invitation.png" alt="Swagger — MemberContribution e Invitation" width="700"/>
+</p>
+
+#### Evidencia de Pipeline (CI/CD)
+
+<p align="center">
+	<img src="../assets/chapter-07/backend-build.png" alt="Pipeline CI del backend — build y pruebas automatizadas" width="700"/>
+	<img src="../assets/chapter-07/backend-deploy.png" alt="Pipeline CD del backend — publicación Docker en GHCR y despliegue en Azure Web App" width="700"/>
+</p>
+
+#### Verificación, Validación (V&V) y Observabilidad
+
+El backend cumple con los principios de **Quality Engineering** del Capítulo VI. Los endpoints To-Be están respaldados por **17 pruebas unitarias** (IncomeBased, Bills, Contributions, IAM, IncomeAllocation) y **5 pruebas de integración** (Sign Up, creación de hogar, registro de gastos, invitaciones, IncomeAllocation) con xUnit y EF Core In-Memory. Los escenarios **BDD SpecFlow** de US-TB-01 a US-TB-04 validan Happy Path y Sad Path: montos inválidos en ingresos, bloqueo de IncomeBased sin ingresos completos, consulta de desglose y denegación de marcado de pagos sin rol de representante. El pipeline CI ejecuta dotnet test en cada Pull Request. ASP.NET Core registra **logs estructurados** vía ILogger por request, excepción y operación de dominio; son consultables en Azure Web App para diagnosticar incidencias durante las sesiones del experimento To-Be.
 
 ### 8.3.3.6. Team Collaboration Insights
 
-*Contenido pendiente.*
+#### Gestión de Configuración y Ramas
+
+El equipo adoptó **Gitflow** sobre **GitHub** como estrategia de ramificación para los repositorios de Budgetly (BackEnd, FrontEnd, MobileApp y Documentation). La rama **main** concentra las versiones estables desplegadas en Azure y Firebase; **develop** integra los cambios validados del release To-Be; y las ramas **feature/** (ej. feature/cambios-backend) y **tests** aíslan el trabajo experimental y las suites de prueba antes de fusionarse. Este esquema redujo el riesgo de integración masiva al final del sprint: cada miembro trabajó en ramas propias, abrió Pull Request hacia develop y solo promovió a main tras pasar CI y revisión. La línea principal quedó protegida de commits directos y de código no validado, alineada al experimento To-Be documentado en la sección 8.3.
+
+**Herramientas:** GitHub (control de versiones, Pull Requests, GitHub Actions), backlog To-Be en secciones 8.3.1–8.3.2 del repositorio de documentación, y coordinación del equipo mediante reuniones de sprint y canal de mensajería grupal.
+
+#### Evidencia de Historial Git
+
+Gráfico de red del repositorio **Budgetly-BackEnd** (Insights → Network), con ramas main, develop, feature/cambios-backend y tests entre abril y julio:
+
+<p align="center">
+	<img src="../assets/chapter-08/team-git-network.png" alt="Gráfico de red Git — Budgetly-BackEnd" width="800"/>
+</p>
+
+#### Cultura DevOps y Disciplina de CI
+
+El equipo operó bajo **responsabilidad compartida** entre desarrollo y operaciones: nadie “lanzaba y olvidaba” el despliegue. Los acuerdos de Integración Continua fueron:
+
+- **Don't check-in on a broken build:** no se fusiona a develop ni a main si el pipeline de GitHub Actions falla (dotnet build, dotnet test o despliegue a Azure).
+- **Resolución colaborativa de conflictos:** los conflictos de merge se resuelven en la rama feature o en el PR, con revisión del autor y del revisor antes del merge.
+- **Checks obligatorios:** cada Pull Request dispara Backend CI/CD y el workflow de despliegue ASP.NET Core hacia Azure Web App (budgetly-api-dev).
+- **Trazabilidad por commit:** las imágenes Docker en GHCR se etiquetan con el hash del commit, vinculando cada despliegue a un cambio revisado.
+
+Los workflows registran ejecuciones por push y por Pull Request en ramas main y develop, con intervención de varios integrantes (Angelo5214, JKOlimpo, entre otros). Los fallos de CI se corrigen antes de reintentar el merge, evitando propagar regresiones al entorno usado por el Grupo B del experimento.
+
+<p align="center">
+	<img src="../assets/chapter-08/team-github-actions.png" alt="GitHub Actions — historial de workflows Backend CI/CD" width="800"/>
+</p>
+
+#### Evidencia de Code Review / Gestión
+
+Los cambios del backend To-Be se integraron mediante **Pull Requests** revisados en GitHub. El repositorio Budgetly-BackEnd registra PRs #1, #2 y #3 desde develop hacia main, fusionados tras validación del pipeline:
+
+<p align="center">
+	<img src="../assets/chapter-08/team-pull-requests.png" alt="Pull Requests cerrados — Budgetly-BackEnd" width="800"/>
+</p>
+
+Distribución de aportes To-Be (referencia Cap. V): **Renzo Uribe**  backend y endpoints; **Angelo Solano**  lógica de contribuciones y Mobile App; **Carlos Guimaraes** y **Martin Gonzales**  frontend web; **Camila Huamani**  usuarios y configuración.
+
+#### Madurez del Equipo
+
+La combinación de Gitflow, Pull Requests, CI automatizado y comunicación directa entre roles permitió escalar el desarrollo To-Be sin perder estabilidad en main. El equipo priorizó entregas incrementales revisables features IncomeBased, ingresos y pagos sobre integraciones monolíticas al cierre del sprint.
 
 ## 8.3.4. To-Be Validation Interviews
 
