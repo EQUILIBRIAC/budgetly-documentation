@@ -810,7 +810,13 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 
 ### 8.3.3.1. To-Be Sprint Backlogs
 
-*Contenido pendiente.*
+| **User Story Id** | **Title** | **Task Id** | **Task Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do/In-Process/To-Review/Done)** |
+|---|---|---|---|---|---:|---|---|
+| US-TB-01 | Registrar ingresos | T1 | Formulario de registro de ingresos | Desarrollo del formulario para registrar nuevos ingresos con validación de datos y almacenamiento en la base de datos. | 5 | Martin Gonzales | Done |
+| US-TB-02 | Activar IncomeBased | T1 | Configuración de IncomeBased | Implementación de la opción para activar la funcionalidad IncomeBased y guardar la configuración del usuario. | 3 | Camila Huamani | Done |
+| US-TB-03 | Ver desglose | T1 | Visualización del desglose | Desarrollo de la pantalla que muestra el desglose detallado de ingresos, gastos y cálculos asociados. | 5 | Angelo Solano | Done |
+| US-TB-04 | Marcar pagado | T1 | Actualizar estado de pago | Implementación de la funcionalidad para marcar obligaciones como pagadas y actualizar su estado en el sistema. | 3 | Renzo Uribe | Done |
+
 
 ### 8.3.3.2. Implemented To-Be Landing Page Evidence
 
