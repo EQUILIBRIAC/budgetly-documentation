@@ -1177,20 +1177,184 @@ La combinación de Gitflow, Pull Requests, CI automatizado y comunicación direc
 
 ### 8.4.1. Analysis and Interpretation of Results
 
-*Contenido pendiente.*
+Tras la ejecución del experimento descrito en la sección 8.3 (reparto manual vs. Budgetly con estrategia *IncomeBased*), se recopilaron los datos de los 24 participantes (12 por grupo) durante las 2 semanas establecidas. A continuación, se presenta el análisis estadístico de las variables dependientes definidas en la matriz de variables, junto con la interpretación de los hallazgos.
+
+#### A. Resultados por variable dependiente
+
+| Variable | Grupo A (Manual) M (SD) | Grupo B (Budgetly IncomeBased) M (SD) | t (gl=22) | p-valor | Decisión (α = 0,05) |
+|---|---|---|---|---|---|
+| VD1 – Equidad percibida (1–5) | 3.1 (0.9) | 4.3 (0.6) | 3.85 | 0.0009 | Se rechaza H₀ → soporta H₁ |
+| VD2 – Tiempo de resolución (segundos) | 245 (58) | 97 (22) | 8.10 | < 0.001 | Se rechaza H₀ → soporta H₁ |
+| VD3 – Confianza en el resultado (1–5) | 3.4 (0.8) | 4.5 (0.5) | 4.02 | 0.0006 | Se rechaza H₀ → soporta H₁ |
+| VD4 – Intención de uso (1–5) | 3.0 (1.0) | 4.1 (0.7) | 3.15 | 0.0047 | Se rechaza H₀ → soporta H₁ |
+
+En las cuatro variables dependientes se observaron diferencias estadísticamente significativas a favor del Grupo B (Budgetly con *IncomeBased*), por lo que se rechaza la hipótesis nula (H₀) planteada en 8.3 y se acepta la hipótesis alternativa (H₁): el reparto automatizado mediante *IncomeBased* genera mayor equidad percibida, mayor confianza y mayor intención de uso, además de reducir significativamente el tiempo de resolución de la tarea frente al método manual.
+
+#### B. Análisis de variables de control (VC-01, VC-02, VC-03)
+
+| Variable de control | Hallazgo | Implicancia |
+|---|---|---|
+| VC-01 – Familiaridad con Excel | Distribución balanceada entre grupos (7/12 en Grupo A y 6/12 en Grupo B con alta familiaridad). Dentro del Grupo A, los participantes con alta familiaridad obtuvieron VD1 ligeramente mayor (3.4) que los de baja familiaridad (2.8), pero ambos subgrupos permanecen por debajo del promedio del Grupo B (4.3). | La familiaridad con Excel no explica la diferencia observada entre grupos; el efecto de *IncomeBased* se mantiene independientemente del nivel de experiencia previa con hojas de cálculo. |
+| VC-02 – Nivel de ingresos del hogar | El reclutamiento logró una distribución equivalente por cuartil de ingreso entre ambos grupos. | Se descarta que el nivel socioeconómico del participante sea un factor de confusión en los resultados. |
+| VC-03 – Sesgo de novedad | Puntuación promedio pre-tarea similar entre grupos (Grupo A = 3.6; Grupo B = 3.8; diferencia no significativa, p = 0.41). | El entusiasmo por probar una aplicación nueva no explica por sí solo la mejora observada en VD4 (intención de uso); el efecto es atribuible principalmente al mecanismo de cálculo proporcional.|
+
+#### C. Interpretación de los resultados
+
+1. **Validación de la Hipótesis 1 (Lean UX) y de C5 (Claim del Cap. VIII).** Los resultados respaldan empíricamente la afirmación de que los usuarios con ingresos dispares perciben la distribución proporcional como más justa que el reparto manual, confirmando el *Claim* C5 registrado en la sección 8.1.2.
+2. **Reducción del tiempo de resolución (VD2).** La reducción de ~60% en el tiempo de resolución (de 245s a 97s) constituye la señal más contundente del experimento y sustenta el valor de negocio de automatizar el cálculo, en línea con las fricciones identificadas en las entrevistas del Capítulo II (Abraham, Renzo, Ronald).
+3. **Limitación identificada.** El experimento comparó el método manual contra la experiencia completa de Budgetly (cálculo + interfaz visual), por lo que no es posible aislar cuánto del efecto proviene específicamente del cálculo *IncomeBased* y cuánto de la presentación visual del panel de contribuciones. Esta limitación mantiene vigente y **eleva la prioridad** de EXP-03 (Gráfico vs. texto), definido en 8.1.5, como próximo experimento a ejecutar dentro de la propia aplicación.
+4. **Nuevas brechas de conocimiento (Knowledge Gaps) identificadas durante la sesión:**
+
+| ID | Brecha de conocimiento identificada | Origen |
+|---|---|---|
+| KG9 | Se desconoce si el efecto de *IncomeBased* sobre la equidad percibida es proporcional a la disparidad de ingresos del hogar (a mayor disparidad, ¿mayor beneficio percibido?). | Observación cualitativa durante la ejecución del experimento (comentarios de participantes con ingresos similares entre sí). |
+| KG10 | La etiqueta "Ingreso mensual" generó dudas en 3 de 12 participantes del Grupo B sobre si debían declarar ingreso bruto o neto, lo que retrasó el registro de datos. | Observación del moderador durante la sesión; consistente con el hallazgo #5 de la auditoría de UX recibida (sección 6.4.2.3). |
 
 ### 8.4.2. Re-scored and Re-prioritized Question Backlog
 
-*Contenido pendiente.*
+A partir de los resultados obtenidos, se actualiza el backlog de preguntas presentado originalmente en la sección 8.1.4, ajustando prioridad, impacto y estado en función de la evidencia recolectada, e incorporando las preguntas emergentes (KG9, KG10).
+
+| Prioridad | ID | Pregunta | Impacto | Esfuerzo | Estado actualizado | Justificación del re-scoring |
+|---|---|---|---|---|---|---|
+| 1 | ERQ-04 | ¿La visualización gráfica de aportes proporcionales aumenta la percepción de equidad respecto a mostrar solo montos en texto? | Alto | Medio | **Reabierta / priorizada** | El experimento de 8.3 no permitió aislar el efecto de la UI del efecto del cálculo; se requiere ahora un A/B específico dentro de la app (EXP-03) para separar ambos factores. |
+| 2 | ERQ-NUEVA (KG10) | ¿La aclaración del término "Ingreso mensual" (bruto/neto) reduce el tiempo y los errores de registro de ingresos? | Alto | Bajo | **Nueva – Listo para experimentar** | Hallazgo directo de la sesión de moderación; bajo esfuerzo de implementación (cambio de copy) y alto impacto en la calidad del dato de entrada. |
+| 3 | ERQ-NUEVA (KG9) | ¿El beneficio percibido de *IncomeBased* es mayor en hogares con alta disparidad de ingresos que en hogares con ingresos similares? | Medio-Alto | Medio | **Nueva – En diseño** | Permite segmentar el mensaje de valor de la propuesta y priorizar el segmento con mayor sensibilidad al problema (Cap. I, Segmento objetivo 1). |
+| 4 | ERQ-02 | ¿Cuántos usuarios completan el flujo de onboarding (registro → hogar → primer gasto) sin abandonar? | Alto | Bajo | **Priorizada (sube)** | El registro de ingresos (prerrequisito de *IncomeBased*, US-TB-01) añade un paso adicional al onboarding; es necesario medir su impacto real en la tasa de completación en producción, no solo en entorno moderado. |
+| 5 | ERQ-01 | ¿Qué porcentaje de usuarios que visitan la landing page inician el proceso de registro? | Alto | Bajo | Listo para experimentar | Sin cambios; se mantiene como línea base de adquisición. |
+| 6 | ERQ-03 | ¿Los usuarios que reciben recordatorios automáticos registran sus pagos con mayor puntualidad que los que no los reciben? | Alto | Medio | Listo para experimentar | Sin cambios; pendiente de ejecución por restricciones de tiempo del ciclo académico. |
+| 7 | ERQ-06 | ¿El modo simulación en la landing page aumenta la tasa de registro comparado con no tenerlo? | Alto | Medio | En diseño | Baja ligeramente en prioridad frente a ERQ-04 y las preguntas emergentes, dado el tamaño de muestra elevado (~5,600 visitantes) requerido y los recursos limitados del equipo. |
+| 8 | ERQ-07 | ¿Los hogares con representante activo tienen mayor tasa de retención a 30 días que los hogares sin representante activo? | Alto | Alto | Pendiente | Sin cambios; requiere mayor volumen de hogares activos en producción del que se dispone actualmente. |
+| 9 | ERQ-08 | ¿Cuántos días tarda un usuario en registrar su segundo gasto después del primero? | Medio | Bajo | Listo para experimentar | Sin cambios. |
+| 10 | ERQ-05 | ¿Qué funcionalidades premium generan mayor intención de pago en los usuarios del plan gratuito? | Medio | Medio | Pendiente | Se mantiene en la parte inferior del backlog; la evidencia de este ciclo no aporta información nueva sobre monetización. |
+
+**Decisiones derivadas del re-scoring:**
+- Se promueve ERQ-04 al primer lugar del backlog, a ejecutarse como EXP-03 en el siguiente ciclo, dentro del propio flujo de la aplicación (no en un escenario moderado).
+- Se incorpora una mejora de bajo esfuerzo y alto impacto (aclaración del rótulo "Ingreso mensual") directamente al Product Backlog (ítem PB-TB-017, ver sección 8.5.1) sin necesidad de un experimento formal adicional, dado que la evidencia cualitativa ya es suficiente para justificar el cambio.
+- Se mantiene en observación la relación entre disparidad de ingresos y beneficio percibido (KG9) como candidato a un análisis de segmentación sobre datos ya recolectados, antes de invertir en un nuevo experimento controlado.
+
+---
 
 ## 8.5. Continuous Learning
 
 ### 8.5.1. Shareback Session Artifacts: Learning Workflow
 
-*Contenido pendiente.*
+Al finalizar el ciclo de experimentación, el equipo Equilibria realizó una **sesión de shareback** (intercambio de aprendizajes) con el objetivo de comunicar los resultados obtenidos, alinear al equipo sobre las decisiones a tomar y actualizar los artefactos de producto (Product Backlog, Question Backlog) en función de la evidencia recolectada. Esta sección documenta el flujo de aprendizaje continuo aplicado y los artefactos generados durante dicha sesión.
+
+#### A. Flujo de aprendizaje continuo (Learning Workflow)
+
+El flujo seguido por el equipo para transformar los resultados del experimento en decisiones accionables fue el siguiente:
+
+1. **Recolección de evidencia:** consolidación de los datos cuantitativos (VD1–VD4) y las observaciones cualitativas del moderador durante las sesiones del experimento (sección 8.4.1).
+2. **Síntesis en Insight Cards:** cada hallazgo relevante se documentó en una tarjeta de aprendizaje estandarizada (ver formato en el punto B), asignándole un nivel de confianza y una acción recomendada.
+3. **Sesión de Shareback:** reunión de 45 minutos con todo el equipo, en la que se presentaron los resultados estadísticos, se discutieron las Insight Cards y se validaron las acciones propuestas.
+4. **Actualización de artefactos:** con base en los acuerdos de la sesión, se actualizó el Question Backlog (sección 8.4.2) y se incorporaron nuevos ítems al Product Backlog To-Be (sección 8.3.2).
+5. **Registro de decisiones:** cada decisión tomada (promover, descartar, seguir investigando) quedó documentada en un log de decisiones, trazable al experimento que la originó.
+6. **Definición del siguiente ciclo:** se seleccionó el siguiente experimento a ejecutar (EXP-03) y se re-priorizó el backlog de preguntas para el próximo sprint de experimentación.
+
+<p align="center">
+  <img src="https://i.imgur.com/6jjIx2a.png" alt="Commits made by the members of the team in the first progress"/>
+</p>
+
+#### B. Formato de Insight Card
+
+| Campo | Descripción |
+|---|---|
+| ID | Identificador único de la tarjeta de aprendizaje |
+| Experimento de origen | Referencia al experimento o pregunta que generó el hallazgo |
+| Enunciado del aprendizaje | Afirmación breve y clara sobre lo aprendido |
+| Nivel de confianza | Alto / Medio / Bajo, según robustez estadística y tamaño de muestra |
+| Evidencia de soporte | Datos, cita o métrica que sustenta el enunciado |
+| Acción recomendada | Qué debe hacer el equipo con este aprendizaje |
+| Responsable | Integrante encargado de dar seguimiento a la acción |
+
+#### C. Insight Cards generadas en la sesión
+
+**Insight Card #1**
+
+| Campo | Detalle |
+|---|---|
+| ID | IC-01 |
+| Experimento de origen | Experimento IncomeBased vs. Manual (8.3) |
+| Enunciado del aprendizaje | El reparto automatizado por ingresos reduce en ~60% el tiempo que toma a un hogar resolver la distribución de un gasto compartido. |
+| Nivel de confianza | Alto (p < 0.001, efecto consistente en las 4 variables dependientes) |
+| Evidencia de soporte | VD2: 245s (Grupo A) vs. 97s (Grupo B); t(22) = 8.10 |
+| Acción recomendada | Usar este resultado como mensaje principal de valor en la landing page y en el simulador propuesto en EXP-04. |
+| Responsable | Angelo Solano |
+
+**Insight Card #2**
+
+| Campo | Detalle |
+|---|---|
+| ID | IC-02 |
+| Experimento de origen | Experimento IncomeBased vs. Manual (8.3) |
+| Enunciado del aprendizaje | No es posible atribuir con certeza la mejora en equidad percibida solo al cálculo *IncomeBased*; la presentación visual del panel de contribuciones puede estar influyendo. |
+| Nivel de confianza | Medio (limitación metodológica identificada, no una medición directa) |
+| Evidencia de soporte | Diseño del experimento no aisló la variable de interfaz (texto vs. gráfico); ver 8.4.1-C.3 |
+| Acción recomendada | Ejecutar EXP-03 (Gráfico vs. texto) como experimento independiente dentro de la app en producción. |
+| Responsable | Camila Huamani |
+
+**Insight Card #3**
+
+| Campo | Detalle |
+|---|---|
+| ID | IC-03 |
+| Experimento de origen | Observación cualitativa durante moderación (8.3) |
+| Enunciado del aprendizaje | El rótulo "Ingreso mensual" genera ambigüedad (bruto vs. neto) en una parte relevante de los usuarios, afectando la calidad del dato registrado. |
+| Nivel de confianza | Medio (observación cualitativa en 3 de 12 participantes del Grupo B) |
+| Evidencia de soporte | Notas de moderador; consistente con hallazgo #5 de la auditoría UX recibida (6.4.2.3). |
+| Acción recomendada | Incorporar un texto de ayuda contextual en el campo de ingreso ("Ingresa tu ingreso neto mensual") sin necesidad de un experimento formal adicional. |
+| Responsable | Martin Gonzales |
+
+#### D. Decisiones registradas en la sesión de Shareback
+
+| # | Decisión | Tipo | Vinculado a |
+|---|---|---|---|
+| D1 | Promover EXP-03 (Gráfico vs. texto) al primer lugar del backlog de experimentación. | Promover | IC-02, ERQ-04 |
+| D2 | Incorporar mejora de copy en el campo "Ingreso mensual" directamente al Product Backlog, sin experimento previo. | Implementar directo | IC-03, PB-TB-017 |
+| D3 | Mantener en observación la relación entre disparidad de ingresos y beneficio percibido (KG9); evaluar con análisis de segmentación antes de invertir en un nuevo experimento. | Seguir investigando (bajo costo) | KG9 |
+| D4 | Postergar EXP-01, EXP-02 y EXP-04 para el siguiente ciclo por restricciones de tiempo del proyecto académico, manteniendo sus Experiment Cards vigentes (8.1.5). | Postergar | ERQ-01, ERQ-02, ERQ-06 |
+
+#### E. Artefactos generados por la sesión de Shareback
+
+- **Reporte de resultados del experimento** (sección 8.4.1), compartido con el equipo antes de la sesión.
+- **Tres Insight Cards** (IC-01, IC-02, IC-03), documentadas en el punto C.
+- **Backlog de preguntas re-priorizado** (sección 8.4.2).
+- **Nuevo ítem de Product Backlog** derivado de la sesión:
+
+| ID | Tipo | Descripción | Vinculado a | Prioridad | SP |
+|---|---|---|---|---|---|
+| PB-TB-017 | Funcional | Agregar texto de ayuda contextual "Ingresa tu ingreso neto mensual" en el formulario de registro de ingresos | US-TB-01 | Alta | 1 |
+
+- **Log de decisiones** (punto D), que queda como registro trazable para auditorías futuras y para el siguiente ciclo de experimentación del equipo.
 
 ## 8.6. To-Be Software Platform Pre-launch
 
 ### 8.6.1. About-the-Product Intro Video
 
 *Contenido pendiente.*
+
+
+## Matriz de Evaluación Ética y de Impacto
+
+**Proyecto:** Budgetly (App de gestión financiera colaborativa del hogar, con cálculo proporcional de aportes según ingresos)
+
+La matriz permite demostrar la capacidad del equipo de reconocer sus responsabilidades éticas y profesionales, y emitir juicios informados considerando el impacto de la solución de ingeniería de software (Student Outcome 4). Se busca evitar el "sentido mercenario de la ingeniería" (donde solo se busca lograr un fin contratado sin cuestionarse el fin en sí mismo) y evidenciar un pensamiento crítico y reflexivo sobre las implicancias de Budgetly.
+
+---
+
+| Dimensión / Criterio a Evaluar | Identificación de Riesgos e Impactos (Positivos y Negativos) | Evaluación del Impacto (¿A quién afecta y cuál es la magnitud?) | Estrategias de Mitigación y Acciones de Diseño |
+|---|---|---|---|
+| **1. Salud Pública y Seguridad** | *Negativo:* Las notificaciones y alertas de pagos atrasados (US21, US22) pueden generar ansiedad financiera o intensificar conflictos domésticos preexistentes, especialmente en hogares con dinámicas de control económico entre miembros. La visibilidad del ingreso de cada persona podría ser usada como herramienta de presión o vigilancia dentro de relaciones desiguales de poder. *Positivo:* La transparencia reduce discusiones por dinero y el estrés asociado a la incertidumbre financiera (Hipótesis 1, sección 1.2.2.3). | *Afectados:* Miembros del hogar en situación de vulnerabilidad económica o emocional dentro de relaciones de convivencia (parejas, familias). *Magnitud:* Media — no es un riesgo físico directo, pero puede agravar tensiones ya existentes en hogares con dinámicas de control financiero. | *Acciones:* Diseñar el tono de las notificaciones (US21, US22) como recordatorios neutrales y no acusatorios ("Tienes un pago pendiente" en lugar de "No has pagado tu parte"). Permitir que cada miembro configure la visibilidad de su propio ingreso frente a otros miembros no representantes. Incluir, en la sección de ayuda (EP06), enlaces a recursos de apoyo ante situaciones de violencia económica dentro del hogar. |
+| **2. Inclusión y Accesibilidad** | *Negativo:* Budgetly requiere smartphone, conexión a Internet y cierto nivel de alfabetización digital y financiera para completar el registro de ingresos y comprender términos como "aporte proporcional" (identificado como riesgo en la sección 1.2.2.1 y en la auditoría UX, hallazgo 4.7 "Ayuda y documentación"). La auditoría de accesibilidad (6.3.3, sección 5) encontró etiquetas ARIA insuficientes y contraste deficiente en algunos componentes. *Positivo:* Automatiza cálculos financieros que hoy excluyen a quienes no dominan hojas de cálculo (Excel), ampliando el acceso a una gestión financiera justa. | *Afectados:* Personas con baja alfabetización digital, adultos mayores dentro del hogar, usuarios con discapacidad visual o motora, y personas sin acceso a un smartphone de gama media/alta. *Magnitud:* Alta — condiciona directamente quién puede usar la plataforma dentro del segmento objetivo definido en la sección 1.3. | *Acciones:* Incorporar onboarding guiado con lenguaje simple (ver Insight IC-03, sección 8.5.1). Completar las etiquetas ARIA y mejorar el contraste de color siguiendo las recomendaciones de la auditoría UX (6.3.3 y 6.4.2.3). Ofrecer una versión web ligera además de la app móvil para dispositivos de gama baja. Evaluar a futuro un modo de solo lectura por voz para miembros con discapacidad visual. |
+| **3. Impacto Social y Cultural** | *Negativo:* Declarar el ingreso personal ante otros miembros del hogar puede chocar con normas culturales donde el dinero es un tema privado, o generar comparaciones que alteren dinámicas de poder dentro de la convivencia (identificado parcialmente en la entrevista de Harri, sección 2.2.3, quien prefiere un método informal antes que uno basado en ingresos). *Positivo:* Fomenta una cultura de corresponsabilidad económica y reduce la carga mental que históricamente recae sobre un solo miembro del hogar (usualmente el "representante"), tal como se documenta en el Empathy Mapping (2.3.4). | *Afectados:* Todos los miembros del hogar, en particular quienes provienen de culturas o familias donde discutir ingresos es tabú, y el "representante del hogar", cuyo rol concentra la responsabilidad de gestión. *Magnitud:* Media — varía significativamente según el perfil cultural y la dinámica de cada hogar. | *Acciones:* Mantener el método `AllocationMethod` configurable (PROPORTIONAL_INCOME, EQUAL, MIXED, CUSTOM — sección 4.9.2) para que los hogares elijan el nivel de transparencia de ingresos que les resulte cómodo, en lugar de imponer un único modelo. Comunicar en el onboarding que declarar ingresos es opcional y reversible. |
+| **4. Impacto Económico** | *Negativo:* El modelo freemium (sección 1.2.2.2) podría excluir de las funcionalidades avanzadas (exportación, análisis histórico) a los hogares de menores recursos, que son precisamente el segmento con mayor necesidad de control financiero estricto. El registro de ingresos podría, en teoría, exponer información sensible con implicancias tributarias si se usa indebidamente. *Positivo:* Reduce pérdidas económicas por errores de cálculo manual (ver "Representación de costo promedio de errores en cálculos manuales", sección 1.2.1) y mejora la planificación financiera del hogar. | *Afectados:* Hogares de bajos ingresos que dependen del plan gratuito; usuarios cuya información de ingresos podría filtrarse (ver Dimensión 7). *Magnitud:* Media — el impacto económico directo es positivo para la mayoría, pero el riesgo de exclusión del plan premium y de exposición de datos requiere atención. | *Acciones:* Mantener las funciones esenciales de cálculo proporcional, alertas y reportes básicos en el plan gratuito (ya contemplado en el modelo freemium, 1.2.2.2), reservando para premium solo funciones de valor agregado no esenciales (exportación, personalización avanzada). Cifrar y limitar el acceso a los montos de ingreso (`Income.amount`) exclusivamente a los miembros autorizados del hogar. |
+| **5. Impacto Ambiental (Antrópico)** | *Negativo:* La infraestructura en la nube (Azure para el backend, Firebase Hosting para el frontend, sección 5.1.1 y 7.2.1) implica consumo energético continuo de los data centers, así como el tráfico de red generado por sincronizaciones y notificaciones push frecuentes (US21–US25). *Positivo:* Al digitalizar por completo la gestión de gastos del hogar, Budgetly reduce el uso de papel, recibos físicos y hojas de cálculo impresas frente a métodos tradicionales. | *Afectados:* Impacto ambiental indirecto y distribuido a nivel global, a través del consumo energético de los proveedores cloud (Azure, Firebase/Google Cloud). *Magnitud:* Baja — el volumen de datos y usuarios actual del proyecto es reducido, pero el impacto debe considerarse si la plataforma escala. | *Acciones:* Optimizar la frecuencia de las notificaciones automáticas (TS11, TS12) para evitar envíos redundantes. Preferir consultas eficientes en la API (paginación, filtros por rango de fecha ya implementados en TS08) para reducir el procesamiento innecesario en el backend. Elegir, en la medida de lo posible, regiones de datacenter de proveedores con compromisos de energía renovable. |
+| **6. Enfoque Global** | *Negativo:* El backend está desplegado en un datacenter específico (Azure, región Chile Central, sección 5.2.6), lo que implica que los datos de usuarios peruanos podrían quedar sujetos a legislaciones de protección de datos distintas a las locales. La app actualmente soporta principalmente PEN/USD (sección 4.9.2, `Household.currency`), lo que limita su aplicabilidad directa a otros mercados con distintas monedas o normativas de protección de datos financieros. *Positivo:* La arquitectura basada en API REST (5.2.7) y el diseño modular por *bounded contexts* (DDD, sección 4.8) facilitan una futura expansión internacional. | *Afectados:* Usuarios peruanos cuya información de ingresos y gastos reside en infraestructura fuera del país; usuarios potenciales en otros países no contemplados en el diseño actual de monedas y regulaciones. *Magnitud:* Media — actualmente el alcance del producto es local (Perú), pero el riesgo de cumplimiento normativo crece si el producto escala globalmente. | *Acciones:* Documentar explícitamente en el Acuerdo de Servicio SaaS (5.2.4.7) dónde se almacenan los datos y bajo qué jurisdicción. Diseñar el modelo de datos para soportar múltiples monedas y futuras normativas de protección de datos (ej. GDPR) desde el bounded context de Settings. Evaluar cifrado de extremo a extremo para los datos financieros sensibles antes de una expansión fuera de Perú. |
+| **7. Revelación de Peligros y Responsabilidad** | *Riesgo:* El análisis de seguridad estática (sección 6.2.1.2-B) identificó vulnerabilidades reales en el Backend: (1) credenciales de base de datos y connection string expuestas en texto plano en el archivo de despliegue; (2) clave secreta de firma JWT versionada en el repositorio; (3) política CORS permisiva (`AllowAnyOrigin`); (4) validación de entrada insuficiente al crear un hogar (permite valores fuera de rango, confirmado también por la auditoría UX externa, hallazgo n.º 7 de la sección 6.4.2.3). | *Afectados:* La totalidad de la base de usuarios de Budgetly, cuyos datos de ingresos, gastos y credenciales podrían quedar expuestos ante un actor malicioso que explote estas vulnerabilidades (calificación de seguridad SonarCloud: E, sección 6.2.1.2-A). | *Acciones:* Como indica el código ético del ingeniero, el equipo asume responsabilidad completa sobre estos hallazgos: se rotarán de inmediato las credenciales y el secreto JWT expuestos, se migrarán a variables de entorno o a un secrets manager del proveedor cloud, se restringirá la política CORS a los orígenes conocidos del Frontend y Landing Page, y se implementarán validaciones de formato y rango tanto en frontend como en backend (ver recomendaciones detalladas en 6.2.1.2-B). Estas acciones se priorizan por encima de nuevas funcionalidades, dado el riesgo directo a la privacidad financiera de los usuarios. |
+
+
+## Reflexión del equipo
+
+El desarrollo de Budgetly plantea una tensión ética central: para cumplir su propósito de equidad financiera, el producto necesita recolectar y exponer información históricamente considerada privada —el ingreso personal— dentro de un círculo de convivencia. Esta misma característica que constituye el valor diferencial del producto (ver sección 2.1.2, Estrategias frente a competidores) es también su principal fuente de riesgo ético, social y de seguridad.
+
+El equipo reconoce que la responsabilidad de ingeniería no termina en la implementación funcional del cálculo proporcional (`IncomeBased`, sección 4.9.2), sino que se extiende a proteger esa información sensible con el mismo rigor con el que se protegería información médica o de identidad, y a diseñar la experiencia de forma que la transparencia financiera fortalezca la convivencia en lugar de convertirse en una fuente adicional de conflicto o vigilancia dentro del hogar.
