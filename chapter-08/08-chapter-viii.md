@@ -866,7 +866,45 @@ Link: https://equilibriac.github.io/Budgetly-LandingPage/
 
 ### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
 
-*Contenido pendiente.*
+Se desarrolló e implementó el To-Be **Frontend Web Application de Budgetly**, utilizando Vue.js. Se construyeron las principales vistas del sistema, incluyendo dashboards para los distintos tipos de usuario, gestión de hogares, miembros, gastos y contribuciones.
+
+El sistema fue desplegado públicamente, permitiendo validar su funcionamiento y navegación.
+
+- Link: https://budgetly-exp-app.web.app/
+
+**Evidencias de la interfaz:**
+
+- Representative-Dashboard:
+
+<p align="center"> <img src="https://i.imgur.com/ScSAYPY.png"> </p>
+
+- Representative-Households:
+
+<p align="center"> <img src="https://i.imgur.com/8p47Mf7.png> </p>
+
+- Representative-Members:
+
+<p align="center"> <img src="https://i.imgur.com/cxwGkb3.png"> </p>
+
+- Representative-Expenses:
+
+<p align="center"> <img src="https://i.imgur.com/Xe6VSoe.png"> </p>
+
+- Representative-Contributions:
+
+<p align="center"> <img src="https://i.imgur.com/G2gB95j.png"> </p>
+
+- Representative-Configuration:
+
+<p align="center"> <img src="https://i.imgur.com/gTNDZI6.png"> </p>
+
+- Member-HomeState:
+
+<p align="center"> <img src="https://i.imgur.com/RTFcXZ9.png"> </p>
+
+- Member-FindHome:
+
+<p align="center"> <img src="https://i.imgur.com/ubgwwUe.png"> </p>
 
 ### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
 
