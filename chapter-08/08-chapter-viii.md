@@ -820,7 +820,49 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 
 ### 8.3.3.2. Implemented To-Be Landing Page Evidence
 
-*Contenido pendiente.*
+Como parte de la revisión del sprint, se presentan las evidencias de ejecución relacionadas con el desarrollo del Landing Page de Budgetly. La implementación se realizó empleando HTML, CSS y JavaScript, asegurando una estructura semántica clara, un diseño visual coherente con las guías de estilo y funcionalidades interactivas que mejoran la experiencia de usuario.
+
+Además de las capturas del código implementado, se incluye un video demostrativo donde se explica y evidencia la navegación lograda durante este sprint, así como el flujo de interacción principal que se validó.
+
+Video del landing page: bit.ly/4nxTsa6  
+
+Link: https://equilibriac.github.io/Budgetly-LandingPage/
+
+- Home:<br>
+
+   ![Alt Text](https://i.imgur.com/t4Qhimv.png)
+<br>
+
+- About Us:<br>
+
+   <p align="center">
+  <img src="https://i.imgur.com/vJMTZXZ.png">
+  </p>
+
+  <br>
+  
+- Services: <br>
+
+  ![Alt Text](https://i.imgur.com/Cm1hcCM.png)
+  
+  <br>
+- How does it work?: <br>
+
+  ![Alt Text](https://i.imgur.com/T3mUGK1.png)
+
+  <br>
+
+- Prices: <br>
+
+  ![Alt Text](https://i.imgur.com/vwMPWn9.png)
+
+  <br>
+
+- Contact us: <br>
+
+  ![Alt Text](https://i.imgur.com/F6WZD9c.png)
+
+  <br>
 
 ### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
 
