@@ -1417,7 +1417,12 @@ El flujo seguido por el equipo para transformar los resultados del experimento e
 
 ### 8.6.1. About-the-Product Intro Video
 
-*Contenido pendiente.*
+<p align="center">
+  <img src="https://i.imgur.com/5Xq3W8V.png" alt="Commits made by the members of the team in the fourth progress"/>
+</p>
+
+En el siguiente video se muestra una vista detallada del uso y proposito de la aplicación deasarrollada: https://shorturl.at/1Hyl0
+
 
 
 ## Matriz de Evaluación Ética y de Impacto
