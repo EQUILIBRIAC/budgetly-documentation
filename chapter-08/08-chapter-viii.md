@@ -1323,46 +1323,36 @@ En esta sección se registran las entrevistas de validación realizadas para eva
 
 | Campo | Registro |
 |---|---|
-| Segmento objetivo | [Representante del hogar] |
-| Nombres y apellidos | [Eduardo Gael Rivera Sosa] |
-| Edad | [20] |
-| Distrito | [San Juan De Lurigancho] |
+| Segmento objetivo | Representante del hogar |
+| Nombres y apellidos | Eduardo Gael Rivera Sosa |
+| Edad | 20 |
+| Distrito | San Juan De Lurigancho |
 | Entrevistador | Renzo Sebastián Uribe Livia |
-| Fecha de entrevista | [08/07/2026] |
+| Fecha de entrevista | 08/07/2026 |
 | Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaGael.png" alt="Screenshot de entrevista a Eduardo Gael Rivera Sosa" width="500"/></p> |
-| URL del video | [https://youtu.be/Fc1dUrcYfIk] |
-| Timing de inicio | [00:01] |
-| Duración | [7:59] |
+| URL del video | https://youtu.be/Fc1dUrcYfIk |
+| Timing de inicio | 00:01 |
+| Duración | 7:59 |
 | Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
-| Resumen de la entrevista | [Se mostro el flujo completo de la aplicacion a un representante de la familia, menciona que vive solo y basicamente solo el maneja sus propios gastos, al enseñarle la pagina quedo impresioado de las funcionalidades, despues de las preguntas el usuario final confirma que utilizaria la pagina con unicamente una sugerencia en el apartado de los gastos.] |
+| Resumen de la entrevista | Se mostro el flujo completo de la aplicacion a un representante de la familia, menciona que vive solo y basicamente solo el maneja sus propios gastos, al enseñarle la pagina quedo impresioado de las funcionalidades, despues de las preguntas el usuario final confirma que utilizaria la pagina con unicamente una sugerencia en el apartado de los gastos. |
 
 #### Entrevista 2
 
 | Campo | Registro |
 |---|---|
-| Segmento objetivo | [Representante del hogar] |
-| Nombres y apellidos | [Alvaro Javier Gomez Huaman] |
-| Edad | [20] |
-| Distrito | [Ica] |
+| Segmento objetivo | Representante del hogar |
+| Nombres y apellidos | Alvaro Javier Gomez Huaman |
+| Edad | 20 |
+| Distrito | Ica |
 | Entrevistador | Renzo Sebastián Uribe Livia |
-| Fecha de entrevista | [08/07/2026] |
+| Fecha de entrevista | 08/07/2026 |
 | Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaAlvaro.png" alt="Screenshot de entrevista a Alvaro Javier Gomez Huaman" width="500"/></p> |
-| URL del video | [https://youtu.be/m_0XP6vUGrs] |
-| Timing de inicio | [00:01] |
-| Duración | [10:33] |
+| URL del video | https://youtu.be/m_0XP6vUGrs |
+| Timing de inicio | 00:01 |
+| Duración | 10:33 |
 | Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
-| Resumen de la entrevista | [Se mostro el flujo completo de la aplicacion a un representante de gastos de la familia, menciona que vive con 2 hermanas por lo tanto tiene dificultades para organizar los gastos totales, se le presento la aplicacion y se mostro duditativo, ya que el sentia que algunas cosas podian mejorar y lo brindo de suferencia, informo que si la utilizaria si subsanaban esos ajustes e incluso recomendandola a otros usuarios, esta dispuesto a introducir sus gastos ya que la interfaz le parece adecuada y minimalista y transmite confianza.] |
+| Resumen de la entrevista | Se mostro el flujo completo de la aplicacion a un representante de gastos de la familia, menciona que vive con 2 hermanas por lo tanto tiene dificultades para organizar los gastos totales, se le presento la aplicacion y se mostro duditativo, ya que el sentia que algunas cosas podian mejorar y lo brindo de suferencia, informo que si la utilizaria si subsanaban esos ajustes e incluso recomendandola a otros usuarios, esta dispuesto a introducir sus gastos ya que la interfaz le parece adecuada y minimalista y transmite confianza. |
 
-#### Síntesis de hallazgos de las entrevistas
-
-| Criterio evaluado | Entrevista 1 | Entrevista 2 | Conclusión preliminar |
-|---|---|---|---|
-| Comprensión de la propuesta de valor | [Alta / Media / Baja] | [Alta / Media / Baja] | [Conclusión breve] |
-| Claridad de la landing page | [Alta / Media / Baja] | [Alta / Media / Baja] | [Conclusión breve] |
-| Comprensión del cálculo IncomeBased | [Alta / Media / Baja] | [Alta / Media / Baja] | [Conclusión breve] |
-| Percepción de justicia del reparto proporcional | [Alta / Media / Baja] | [Alta / Media / Baja] | [Conclusión breve] |
-| Confianza para usar Budgetly en gastos reales | [Alta / Media / Baja] | [Alta / Media / Baja] | [Conclusión breve] |
-| Intención de uso o recomendación | [Sí / No / Tal vez] | [Sí / No / Tal vez] | [Conclusión breve] |
 
 ## 8.4. Experiment Aftermath & Analysis
 
