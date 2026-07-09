@@ -1353,6 +1353,57 @@ En esta sección se registran las entrevistas de validación realizadas para eva
 | Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
 | Resumen de la entrevista | Se mostro el flujo completo de la aplicacion a un representante de gastos de la familia, menciona que vive con 2 hermanas por lo tanto tiene dificultades para organizar los gastos totales, se le presento la aplicacion y se mostro duditativo, ya que el sentia que algunas cosas podian mejorar y lo brindo de suferencia, informo que si la utilizaria si subsanaban esos ajustes e incluso recomendandola a otros usuarios, esta dispuesto a introducir sus gastos ya que la interfaz le parece adecuada y minimalista y transmite confianza. |
 
+#### Entrevista 3
+
+| Campo | Registro |
+|---|---|
+| Segmento objetivo | Personas miembros del hogar |
+| Nombres y apellidos | Fabricio Lopez de la Cruz |
+| Edad | 22 |
+| Distrito | Santiago de Surco |
+| Entrevistador | Carlos Eduardo Guimaraes Escalante |
+| Fecha de entrevista | 09/07/2026 |
+| Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaFabricio.png" alt="Screenshot de entrevista a Fabricio Lopez de la Cruz" width="500"/></p> |
+| URL del video | https://youtu.be/1h5wNmCnmZA |
+| Timing de inicio | 00:01 |
+| Duración | 10:54 |
+| Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
+| Resumen de la entrevista | Al usuario se le hizo una breve demo de la landing page asi como la demostracion de la versión final de la aplicación Web. El entrevistado  nos mencionó que vive con su familia, por lo que los gastos son compartidos entre el y sus padres a través de notas escritas. Asimismo, también nos dió una observación para el texto de 'Ingreso Mensual, el cual lo considera un poco ambiguo al no especificar si es neto o bruto, ademas, considera que la interfaz es intuitiva y fácil de usar y que si recomendaría el producto a otras personas. |
+
+#### Entrevista 4
+
+| Campo | Registro |
+|---|---|
+| Segmento objetivo | Personas miembros del hogar |
+| Nombres y apellidos | Fabian Oliva Lopez |
+| Edad | 22 |
+| Distrito | Villa María del Triunfo |
+| Entrevistador | Carlos Eduardo Guimaraes Escalante |
+| Fecha de entrevista | 09/07/2026 |
+| Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaFabian.png" alt="Screenshot de entrevista a Fabian Oliva Lopez" width="500"/></p> |
+| URL del video | https://youtu.be/5SFgpFnJ00M |
+| Timing de inicio | 00:01 |
+| Duración | 12:56 |
+| Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
+| Resumen de la entrevista | Se llevó a cabo una breve presentación de la landing page junto con una demostración de la versión final de la aplicación web. Durante la entrevista, el usuario comentó que vive con su familia y que los gastos se organizan de manera compartida entre él y sus padres, usualmente mediante notas escritas. Además, resaltó que toda la gestión debería basarse en acuerdos previamente establecidos para evitar posibles confusiones. Por otro lado, señaló que el término “Ingreso Mensual” le resulta poco claro, ya que no especifica si hace referencia a un ingreso neto o bruto. Finalmente, indicó que la interfaz le parece intuitiva y sencilla de utilizar, y que recomendaría la aplicación a otras personas. |
+
+#### Entrevista 5
+
+| Campo | Registro |
+|---|---|
+| Segmento objetivo | Personas miembros del hogar |
+| Nombres y apellidos | Oskar Rodgrigo Sosa Soto |
+| Edad | 22 |
+| Distrito | Villa el Salvador |
+| Entrevistador | Carlos Eduardo Guimaraes Escalante |
+| Fecha de entrevista | 09/07/2026 |
+| Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaOskar.png" alt="Screenshot de entrevista a Oskar Rodgrigo Sosa Soto" width="500"/></p> |
+| URL del video | https://youtu.be/3dAcnoRvQ8k |
+| Timing de inicio | 00:01 |
+| Duración | 11:15 |
+| Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
+| Resumen de la entrevista | Se realizó una breve presentación de la landing page, así como una demostración de la versión final de la aplicación web. Durante la entrevista, el usuario comentó que vive con su familia y que la administración de los gastos se realiza de forma compartida entre él y sus padres, apoyándose principalmente en anotaciones escritas. No obstante, señaló que, al no encontrarse todos juntos en todo momento, sería importante definir previamente acuerdos claros para organizarse y evitar confusiones. Asimismo, indicó que el término “Ingreso Mensual” le resulta ambiguo, ya que no especifica si se refiere a un monto neto o bruto. Finalmente, mencionó que la interfaz le parece intuitiva y fácil de usar, y que recomendaría la aplicación a otras personas. |
+
 
 ## 8.4. Experiment Aftermath & Analysis
 
