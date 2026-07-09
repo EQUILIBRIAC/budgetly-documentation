@@ -1,4 +1,4 @@
-# Capítulo VIII: Experiment-Driven Development
+﻿# Capítulo VIII: Experiment-Driven Development
 
 ## 8.1. Experiment Planning
 
@@ -177,7 +177,6 @@ El backlog de preguntas está ordenado por impacto en el negocio y viabilidad de
 | **Resultado esperado** | Validar si la experiencia interactiva previa al registro reduce la fricción de adopción y justifica el esfuerzo de desarrollo del simulador. |
 
 ---
-
 ## 8.2. Experiment Design
 
 ### 8.2.1. Hypotheses
@@ -544,24 +543,22 @@ Ejemplo: `auth_completed_registration`, `household_created_home`, `expense_regis
 - Se presentará al usuario un aviso de cookies y tracking en el primer acceso, con opción de opt-out para analítica no esencial, en cumplimiento con la política de privacidad declarada en el Acuerdo de Servicio SaaS (sección 5.2.4).
 - El plan de tracking será revisado y actualizado con cada nuevo experimento para asegurar que las métricas recopiladas son las mínimas necesarias para la toma de decisiones.
 
-
 ## 8.3. Experimentation
 
-El experimento de Budgetly busca validar si la estrategia *IncomeBased* mejora la experiencia de reparto de gastos del hogar frente al método manual que describieron los entrevistados del Capítulo II (Excel, acuerdos verbales, división informal).
+El experimento de Budgetly busca validar si la estrategia **IncomeBased** mejora la experiencia de reparto de gastos del hogar frente al método manual que describieron los entrevistados del Capítulo II (Excel, acuerdos verbales, división informal).
 
 ### Diseño del experimento
 
-*Tipo:* experimento A/B entre sujetos.
+**Tipo:** experimento A/B entre sujetos.
 
-*Grupos:*
+**Grupos:**
 
-- *Grupo A (control):* reparto manual con calculadora, papel o Excel, sin usar Budgetly.
-- *Grupo B (tratamiento):* Budgetly con ingresos registrados y estrategia IncomeBased activa.
+- **Grupo A (control):** reparto manual con calculadora, papel o Excel, sin usar Budgetly.
+- **Grupo B (tratamiento):** Budgetly con ingresos registrados y estrategia IncomeBased activa.
 
-*Escenario de tarea:* un hogar de 3 miembros debe repartir un gasto compartido de *S/ 1 200. Ingresos mensuales: Miembro 1 = S/ 2 500, Miembro 2 = S/ 4 000, Miembro 3 = S/ 6 000 (total S/ 12 500). Con IncomeBased, el resultado esperado es **S/ 240 / S/ 384 / S/ 576*.
+**Escenario de tarea:** un hogar de 3 miembros debe repartir un gasto compartido de **S/ 1 200**. Ingresos mensuales: Miembro 1 = S/ 2 500, Miembro 2 = S/ 4 000, Miembro 3 = S/ 6 000 (total S/ 12 500). Con IncomeBased, el resultado esperado es **S/ 240 / S/ 384 / S/ 576**.
 
-*Parámetros:*
-
+**Parámetros:**
 <table border="1">
 <tr><th>Parámetro</th><th>Valor</th></tr>
 <tr><td>Tamaño muestral (N)</td><td>24 (12 por grupo)</td></tr>
@@ -572,10 +569,9 @@ El experimento de Budgetly busca validar si la estrategia *IncomeBased* mejora l
 
 ### Hipótesis
 
-*H₀ (nula):* No existe diferencia significativa entre el reparto manual (Grupo A) y Budgetly con IncomeBased (Grupo B) en equidad percibida (VD1), tiempo de resolución (VD2), confianza en el resultado (VD3) ni intención de uso (VD4).
+**H₀ (nula):** No existe diferencia significativa entre el reparto manual (Grupo A) y Budgetly con IncomeBased (Grupo B) en equidad percibida (VD1), tiempo de resolución (VD2), confianza en el resultado (VD3) ni intención de uso (VD4).
 
-*H₁ (alternativa):* El Grupo B presenta mayor equidad percibida (VD1) y confianza (VD3), menor tiempo de resolución (VD2) y mayor intención de uso (VD4) que el Grupo A, con α = 0,05.
-
+**H₁ (alternativa):** El Grupo B presenta mayor equidad percibida (VD1) y confianza (VD3), menor tiempo de resolución (VD2) y mayor intención de uso (VD4) que el Grupo A, con α = 0,05.
 ### Matriz de variables
 
 <table border="1">
@@ -593,11 +589,11 @@ El experimento de Budgetly busca validar si la estrategia *IncomeBased* mejora l
 <tr><td>VC-03</td><td>Sesgo de novedad</td><td>Entusiasmo por probar una app nueva</td><td>Ítem pre-tarea; mismo guion introductorio en ambos grupos</td></tr>
 </table>
 
-*Mitigación de variables de confusión:*
+**Mitigación de variables de confusión:**
 
-- *VC-01:* registrar nivel de uso de Excel; si hay desbalance entre grupos, reportar análisis de sensibilidad.
-- *VC-02:* balancear reclutamiento entre perfiles similares a los segmentos del Cap. II.
-- *VC-03:* no enfatizar que Budgetly es un producto "nuevo"; medir el sesgo antes de la tarea y contrastarlo con VD4.
+- **VC-01:** registrar nivel de uso de Excel; si hay desbalance entre grupos, reportar análisis de sensibilidad.
+- **VC-02:** balancear reclutamiento entre perfiles similares a los segmentos del Cap. II.
+- **VC-03:** no enfatizar que Budgetly es un producto "nuevo"; medir el sesgo antes de la tarea y contrastarlo con VD4.
 
 ### Procedimiento
 
@@ -610,12 +606,11 @@ El experimento de Budgetly busca validar si la estrategia *IncomeBased* mejora l
 
 ### Sustento en evidencia previa
 
-- *Capítulo II:* la mayoría de entrevistados reportó desacuerdos en pagos y necesidad de una herramienta que organice los gastos del hogar.
-- *Capítulo VI:* pruebas unitarias y BDD de IncomeBased confirman el reparto S/ 240 / S/ 384 / S/ 576 para el escenario del experimento.
-- *Capítulo VII:* el despliegue en Firebase permite usar la misma versión de la app en todas las sesiones del Grupo B.
+- **Capítulo II:** la mayoría de entrevistados reportó desacuerdos en pagos y necesidad de una herramienta que organice los gastos del hogar.
+- **Capítulo VI:** pruebas unitarias y BDD de IncomeBased confirman el reparto S/ 240 / S/ 384 / S/ 576 para el escenario del experimento.
+- **Capítulo VII:** el despliegue en Firebase permite usar la misma versión de la app en todas las sesiones del Grupo B.
 
-Las historias de usuario y el backlog To-Be que materializan el tratamiento del Grupo B se documentan en *8.3.1* y *8.3.2*.
-
+Las historias de usuario y el backlog To-Be que materializan el tratamiento del Grupo B se documentan en **8.3.1** y **8.3.2**.
 ## 8.3.1. To-Be User Stories
 
 Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la sección 8.3 y al producto Budgetly desplegado.
@@ -624,13 +619,12 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 
 ### US-TB-01 — Registrar ingresos de miembros del hogar
 
-*Épica:* EP03 — Panel del Miembro del Hogar  
-*Historia:* Como representante del hogar, quiero registrar el ingreso mensual de cada miembro para que Budgetly calcule contribuciones proporcionales automáticamente.  
-*Valor de negocio:* Sin ingresos registrados no se puede activar IncomeBased; es prerrequisito del Grupo B en el experimento.  
-*Relación Cap. III:* extiende US11 (Ingresar ingresos personales).
+**Épica:** EP03 — Panel del Miembro del Hogar  
+**Historia:** Como representante del hogar, quiero registrar el ingreso mensual de cada miembro para que Budgetly calcule contribuciones proporcionales automáticamente.  
+**Valor de negocio:** Sin ingresos registrados no se puede activar IncomeBased; es prerrequisito del Grupo B en el experimento.  
+**Relación Cap. III:** extiende US11 (Ingresar ingresos personales).
 
-*Criterios INVEST:*
-
+**Criterios INVEST:**
 <table border="1">
 <tr><th>Letra</th><th>Criterio</th><th>Cumplimiento</th></tr>
 <tr><td>I</td><td>Independiente</td><td>Se implementa sin US-TB-02; solo requiere miembros del hogar creados</td></tr>
@@ -641,37 +635,35 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 <tr><td>T</td><td>Testeable</td><td>BDD con ruta feliz, triste y alternativa</td></tr>
 </table>
 
-*Escenarios BDD:*
+**Escenarios BDD:**
 
-*Ruta feliz — Registrar ingreso por primera vez*
+**Ruta feliz — Registrar ingreso por primera vez**
 
-- *Dado* que soy representante y existe el miembro "Ana" sin ingreso registrado  
-- *Cuando* ingreso S/ 2 500 en "Ingreso mensual" y guardo  
-- *Entonces* el sistema muestra "Ingreso registrado" y Ana aparece con S/ 2 500 en la lista de miembros
+- **Dado** que soy representante y existe el miembro "Ana" sin ingreso registrado  
+- **Cuando** ingreso S/ 2 500 en "Ingreso mensual" y guardo  
+- **Entonces** el sistema muestra "Ingreso registrado" y Ana aparece con S/ 2 500 en la lista de miembros
 
-*Ruta triste — Monto inválido*
+**Ruta triste — Monto inválido**
 
-- *Dado* que estoy en el formulario de ingreso de un miembro  
-- *Cuando* ingreso "-100" o dejo el campo vacío y guardo  
-- *Entonces* el sistema muestra error "Ingrese un monto válido mayor a cero" y no guarda
+- **Dado** que estoy en el formulario de ingreso de un miembro  
+- **Cuando** ingreso "-100" o dejo el campo vacío y guardo  
+- **Entonces** el sistema muestra error "Ingrese un monto válido mayor a cero" y no guarda
 
-*Ruta alternativa — Actualizar ingreso existente*
+**Ruta alternativa — Actualizar ingreso existente**
 
-- *Dado* que el miembro "Ana" ya tiene ingreso S/ 2 500 registrado  
-- *Cuando* cambio el monto a S/ 3 000 y guardo  
-- *Entonces* el sistema actualiza a S/ 3 000 y recalcula las contribuciones pendientes según IncomeBased
-
+- **Dado** que el miembro "Ana" ya tiene ingreso S/ 2 500 registrado  
+- **Cuando** cambio el monto a S/ 3 000 y guardo  
+- **Entonces** el sistema actualiza a S/ 3 000 y recalcula las contribuciones pendientes según IncomeBased
 ---
 
 ### US-TB-02 — Configurar estrategia IncomeBased en el hogar
 
-*Épica:* EP02 — Panel del Representante del Hogar  
-*Historia:* Como representante, quiero seleccionar la estrategia IncomeBased para que los gastos compartidos se repartan según el porcentaje de ingreso de cada miembro.  
-*Valor de negocio:* Es el tratamiento central del experimento (Grupo B).  
-*Relación Cap. III:* extiende US08 (Ajustar porcentajes de aportes).
+**Épica:** EP02 — Panel del Representante del Hogar  
+**Historia:** Como representante, quiero seleccionar la estrategia IncomeBased para que los gastos compartidos se repartan según el porcentaje de ingreso de cada miembro.  
+**Valor de negocio:** Es el tratamiento central del experimento (Grupo B).  
+**Relación Cap. III:** extiende US08 (Ajustar porcentajes de aportes).
 
-*Criterios INVEST:*
-
+**Criterios INVEST:**
 <table border="1">
 <tr><th>Letra</th><th>Criterio</th><th>Cumplimiento</th></tr>
 <tr><td>I</td><td>Independiente</td><td>Depende de US-TB-01; no requiere gastos registrados aún</td></tr>
@@ -682,37 +674,35 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 <tr><td>T</td><td>Testeable</td><td>BDD verifica activación exitosa y bloqueo sin ingresos</td></tr>
 </table>
 
-*Escenarios BDD:*
+**Escenarios BDD:**
 
-*Ruta feliz — Activar IncomeBased*
+**Ruta feliz — Activar IncomeBased**
 
-- *Dado* que todos los miembros tienen ingreso registrado  
-- *Cuando* selecciono "Reparto según ingresos (IncomeBased)" y confirmo  
-- *Entonces* el hogar queda en modo IncomeBased y se muestra el porcentaje de cada miembro
+- **Dado** que todos los miembros tienen ingreso registrado  
+- **Cuando** selecciono "Reparto según ingresos (IncomeBased)" y confirmo  
+- **Entonces** el hogar queda en modo IncomeBased y se muestra el porcentaje de cada miembro
 
-*Ruta triste — Activar sin ingresos completos*
+**Ruta triste — Activar sin ingresos completos**
 
-- *Dado* que al menos un miembro no tiene ingreso registrado  
-- *Cuando* intento activar IncomeBased  
-- *Entonces* el sistema bloquea la acción y muestra "Registre el ingreso de todos los miembros"
+- **Dado** que al menos un miembro no tiene ingreso registrado  
+- **Cuando** intento activar IncomeBased  
+- **Entonces** el sistema bloquea la acción y muestra "Registre el ingreso de todos los miembros"
 
-*Ruta alternativa — Cambiar de manual a IncomeBased con gastos existentes*
+**Ruta alternativa — Cambiar de manual a IncomeBased con gastos existentes**
 
-- *Dado* que el hogar tenía reparto manual y ya existe un gasto compartido de S/ 1 200  
-- *Cuando* activo IncomeBased  
-- *Entonces* el sistema recalcula las contribuciones del gasto pendiente según los ingresos actuales sin borrar el historial
-
+- **Dado** que el hogar tenía reparto manual y ya existe un gasto compartido de S/ 1 200  
+- **Cuando** activo IncomeBased  
+- **Entonces** el sistema recalcula las contribuciones del gasto pendiente según los ingresos actuales sin borrar el historial
 ---
 
 ### US-TB-03 — Visualizar desglose de contribución por gasto
 
-*Épica:* EP04 — Gestión de Gastos Compartidos  
-*Historia:* Como miembro del hogar, quiero ver cuánto me corresponde pagar de cada gasto compartido para entender el reparto sin recalcular manualmente.  
-*Valor de negocio:* Soporta VD1 (equidad percibida) y VD3 (confianza) del experimento.  
-*Relación Cap. III:* extiende US12 (Ver monto a pagar) y US16 (Registrar nuevo gasto).
+**Épica:** EP04 — Gestión de Gastos Compartidos  
+**Historia:** Como miembro del hogar, quiero ver cuánto me corresponde pagar de cada gasto compartido para entender el reparto sin recalcular manualmente.  
+**Valor de negocio:** Soporta VD1 (equidad percibida) y VD3 (confianza) del experimento.  
+**Relación Cap. III:** extiende US12 (Ver monto a pagar) y US16 (Registrar nuevo gasto).
 
-*Criterios INVEST:*
-
+**Criterios INVEST:**
 <table border="1">
 <tr><th>Letra</th><th>Criterio</th><th>Cumplimiento</th></tr>
 <tr><td>I</td><td>Independiente</td><td>Requiere al menos un gasto creado; puede probarse con datos de prueba</td></tr>
@@ -723,37 +713,35 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 <tr><td>T</td><td>Testeable</td><td>Comparar montos con pruebas unitarias IncomeBased del Cap. VI</td></tr>
 </table>
 
-*Escenarios BDD:*
+**Escenarios BDD:**
 
-*Ruta feliz — Ver desglose de gasto compartido*
+**Ruta feliz — Ver desglose de gasto compartido**
 
-- *Dado* un gasto "Alquiler" de S/ 1 200 con IncomeBased activo e ingresos S/ 2 500 / S/ 4 000 / S/ 6 000  
-- *Cuando* abro el detalle del gasto  
-- *Entonces* veo S/ 240, S/ 384 y S/ 576 para cada miembro y la suma total S/ 1 200
+- **Dado** un gasto "Alquiler" de S/ 1 200 con IncomeBased activo e ingresos S/ 2 500 / S/ 4 000 / S/ 6 000  
+- **Cuando** abro el detalle del gasto  
+- **Entonces** veo S/ 240, S/ 384 y S/ 576 para cada miembro y la suma total S/ 1 200
 
-*Ruta triste — Gasto sin estrategia definida*
+**Ruta triste — Gasto sin estrategia definida**
 
-- *Dado* un gasto creado antes de configurar la estrategia de reparto  
-- *Cuando* abro el detalle  
-- *Entonces* el sistema muestra "Configure la estrategia de reparto del hogar"
+- **Dado** un gasto creado antes de configurar la estrategia de reparto  
+- **Cuando** abro el detalle  
+- **Entonces** el sistema muestra "Configure la estrategia de reparto del hogar"
 
-*Ruta alternativa — Filtrar desglose por miembro*
+**Ruta alternativa — Filtrar desglose por miembro**
 
-- *Dado* que soy miembro "Luis" y existen varios gastos compartidos  
-- *Cuando* filtro contribuciones por "Mis pendientes"  
-- *Entonces* solo veo los montos que me corresponden, ordenados por fecha
-
+- **Dado** que soy miembro "Luis" y existen varios gastos compartidos  
+- **Cuando** filtro contribuciones por "Mis pendientes"  
+- **Entonces** solo veo los montos que me corresponden, ordenados por fecha
 ---
 
 ### US-TB-04 — Marcar contribución como pagada
 
-*Épica:* EP04 — Gestión de Gastos Compartidos  
-*Historia:* Como representante, quiero marcar cuando un miembro pagó su parte para llevar trazabilidad y evitar desacuerdos por pagos duplicados u olvidados.  
-*Valor de negocio:* Cierra el ciclo de trazabilidad que los entrevistados pidieron en el Cap. II.  
-*Relación Cap. III:* complementa US14 (Ver historial de pagos).
+**Épica:** EP04 — Gestión de Gastos Compartidos  
+**Historia:** Como representante, quiero marcar cuando un miembro pagó su parte para llevar trazabilidad y evitar desacuerdos por pagos duplicados u olvidados.  
+**Valor de negocio:** Cierra el ciclo de trazabilidad que los entrevistados pidieron en el Cap. II.  
+**Relación Cap. III:** complementa US14 (Ver historial de pagos).
 
-*Criterios INVEST:*
-
+**Criterios INVEST:**
 <table border="1">
 <tr><th>Letra</th><th>Criterio</th><th>Cumplimiento</th></tr>
 <tr><td>I</td><td>Independiente</td><td>Requiere contribución generada (US-TB-03); no depende de pagos en línea</td></tr>
@@ -764,30 +752,29 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 <tr><td>T</td><td>Testeable</td><td>Estado Pendiente → Pagado verificable en API y UI</td></tr>
 </table>
 
-*Escenarios BDD:*
+**Escenarios BDD:**
 
-*Ruta feliz — Marcar pago completo*
+**Ruta feliz — Marcar pago completo**
 
-- *Dado* que la contribución de "Ana" por S/ 240 está pendiente  
-- *Cuando* marco la contribución como "Pagada"  
-- *Entonces* el estado cambia a Pagada y el dashboard muestra el avance del gasto
+- **Dado** que la contribución de "Ana" por S/ 240 está pendiente  
+- **Cuando** marco la contribución como "Pagada"  
+- **Entonces** el estado cambia a Pagada y el dashboard muestra el avance del gasto
 
-*Ruta triste — Marcar sin permisos*
+**Ruta triste — Marcar sin permisos**
 
-- *Dado* que soy miembro regular sin rol de representante  
-- *Cuando* intento marcar la contribución de otro miembro  
-- *Entonces* el sistema deniega la acción y muestra "Solo el representante puede confirmar pagos"
+- **Dado** que soy miembro regular sin rol de representante  
+- **Cuando** intento marcar la contribución de otro miembro  
+- **Entonces** el sistema deniega la acción y muestra "Solo el representante puede confirmar pagos"
 
-*Ruta alternativa — Revertir marcado por error*
+**Ruta alternativa — Revertir marcado por error**
 
-- *Dado* que una contribución fue marcada como Pagada por error  
-- *Cuando* el representante selecciona "Revertir a pendiente" y confirma  
-- *Entonces* el estado vuelve a Pendiente y el progreso del gasto se actualiza
+- **Dado** que una contribución fue marcada como Pagada por error  
+- **Cuando** el representante selecciona "Revertir a pendiente" y confirma  
+- **Entonces** el estado vuelve a Pendiente y el progreso del gasto se actualiza
 
 ---
 
-*Resumen de historias To-Be:*
-
+**Resumen de historias To-Be:**
 <table border="1">
 <tr><th>ID</th><th>Título</th><th>Épica</th><th>Puntos</th><th>US Cap. III</th></tr>
 <tr><td>US-TB-01</td><td>Registrar ingresos</td><td>EP03</td><td>5</td><td>US11</td></tr>
@@ -798,8 +785,7 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 
 ## 8.3.2. To-Be Product Backlog
 
-Ítems del backlog To-Be vinculados a las historias de 8.3.1 y al experimento de 8.3. Incluye ítems *Funcional, **Operación* y *Test*.
-
+Ítems del backlog To-Be vinculados a las historias de 8.3.1 y al experimento de 8.3. Incluye ítems **Funcional**, **Operación** y **Test**.
 <table border="1">
 <tr><th>ID</th><th>Tipo</th><th>Descripción</th><th>US To-Be</th><th>Prioridad</th><th>SP</th></tr>
 <tr><td>PB-TB-001</td><td>Funcional</td><td>Formulario de ingreso mensual por miembro</td><td>US-TB-01</td><td>Alta</td><td>5</td></tr>
@@ -820,3 +806,741 @@ Historias de usuario del estado objetivo (To-Be), alineadas al experimento de la
 <tr><td>PB-TB-016</td><td>Test</td><td>Validar montos S/ 240 / S/ 384 / S/ 576 del escenario del experimento</td><td>US-TB-03</td><td>Alta</td><td>2</td></tr>
 </table>
 
+## 8.3.3. Pipeline-supported, Experiment-Driven To-Be Software Platform Lifecycle
+
+### 8.3.3.1. To-Be Sprint Backlogs
+
+| **User Story Id** | **Title** | **Task Id** | **Task Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do/In-Process/To-Review/Done)** |
+|---|---|---|---|---|---:|---|---|
+| US-TB-01 | Registrar ingresos | T1 | Formulario de registro de ingresos | Desarrollo del formulario para registrar nuevos ingresos con validación de datos y almacenamiento en la base de datos. | 5 | Martin Gonzales | Done |
+| US-TB-02 | Activar IncomeBased | T1 | Configuración de IncomeBased | Implementación de la opción para activar la funcionalidad IncomeBased y guardar la configuración del usuario. | 3 | Camila Huamani | Done |
+| US-TB-03 | Ver desglose | T1 | Visualización del desglose | Desarrollo de la pantalla que muestra el desglose detallado de ingresos, gastos y cálculos asociados. | 5 | Angelo Solano | Done |
+| US-TB-04 | Marcar pagado | T1 | Actualizar estado de pago | Implementación de la funcionalidad para marcar obligaciones como pagadas y actualizar su estado en el sistema. | 3 | Renzo Uribe | Done |
+
+
+### 8.3.3.2. Implemented To-Be Landing Page Evidence
+
+Como parte de la revisión del sprint, se presentan las evidencias de ejecución relacionadas con el desarrollo del Landing Page de Budgetly. La implementación se realizó empleando HTML, CSS y JavaScript, asegurando una estructura semántica clara, un diseño visual coherente con las guías de estilo y funcionalidades interactivas que mejoran la experiencia de usuario.
+
+Además de las capturas del código implementado, se incluye un video demostrativo donde se explica y evidencia la navegación lograda durante este sprint, así como el flujo de interacción principal que se validó.
+
+Video del landing page: bit.ly/4nxTsa6  
+
+Link: https://equilibriac.github.io/Budgetly-LandingPage/
+
+- Home:<br>
+
+   ![Alt Text](https://i.imgur.com/t4Qhimv.png)
+<br>
+
+- About Us:<br>
+
+   <p align="center">
+  <img src="https://i.imgur.com/vJMTZXZ.png">
+  </p>
+
+  <br>
+  
+- Services: <br>
+
+  ![Alt Text](https://i.imgur.com/Cm1hcCM.png)
+  
+  <br>
+- How does it work?: <br>
+
+  ![Alt Text](https://i.imgur.com/T3mUGK1.png)
+
+  <br>
+
+- Prices: <br>
+
+  ![Alt Text](https://i.imgur.com/vwMPWn9.png)
+
+  <br>
+
+- Contact us: <br>
+
+  ![Alt Text](https://i.imgur.com/F6WZD9c.png)
+
+  <br>
+
+### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
+
+Se desarrolló e implementó el To-Be **Frontend Web Application de Budgetly**, utilizando Vue.js. Se construyeron las principales vistas del sistema, incluyendo dashboards para los distintos tipos de usuario, gestión de hogares, miembros, gastos y contribuciones.
+
+El sistema fue desplegado públicamente, permitiendo validar su funcionamiento y navegación.
+
+- Link: https://budgetly-exp-app.web.app/
+
+**Evidencias de la interfaz:**
+
+- Representative-Dashboard:
+
+<p align="center"> <img src="https://i.imgur.com/ScSAYPY.png"> </p>
+
+- Representative-Households:
+
+<p align="center"> <img src="https://i.imgur.com/8p47Mf7.png> </p>
+
+- Representative-Members:
+
+<p align="center"> <img src="https://i.imgur.com/cxwGkb3.png"> </p>
+
+- Representative-Expenses:
+
+<p align="center"> <img src="https://i.imgur.com/Xe6VSoe.png"> </p>
+
+- Representative-Contributions:
+
+<p align="center"> <img src="https://i.imgur.com/G2gB95j.png"> </p>
+
+- Representative-Configuration:
+
+<p align="center"> <img src="https://i.imgur.com/gTNDZI6.png"> </p>
+
+- Member-HomeState:
+
+<p align="center"> <img src="https://i.imgur.com/RTFcXZ9.png"> </p>
+
+- Member-FindHome:
+
+<p align="center"> <img src="https://i.imgur.com/ubgwwUe.png"> </p>
+
+### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
+
+La aplicación móvil nativa de **Budgetly** se implementó con **Flutter (Dart 3.x)** para Android e iOS, consumiendo la API RESTful desplegada en Azure. La estructura del código sigue una arquitectura por capas alineada con **Domain-Driven Design (DDD)**, separando presentación, aplicación, dominio e infraestructura por bounded contexts (IAM, Households, Incomes, Bills, Contributions). El release To-Be materializa el **tratamiento del Grupo B** del experimento definido en la sección 8.3: permitir a representantes y miembros del hogar registrar ingresos, activar el reparto proporcional **IncomeBased**, consultar el desglose de aportes por gasto y confirmar pagos desde el dispositivo móvil.
+
+#### Stack tecnológico y arquitectura
+
+| Componente | Tecnología / práctica |
+|------------|----------------------|
+| Framework móvil | Flutter (Dart) |
+| Plataformas objetivo | Android e iOS |
+| Arquitectura | DDD por capas (presentation / application / domain / infrastructure) |
+| Comunicación | HTTP REST + JWT (Authorization: Bearer) |
+| API consumida | ASP.NET Core 9 desplegada en Azure |
+| Análisis estático | flutter analyze con flutter_lints (*Effective Dart*) |
+| Analytics (plan 8.2.8) | Firebase Analytics (firebase_analytics) |
+| Control de versiones | Git + GitFlow en GitHub |
+
+La capa de **presentación** expone pantallas por rol (Representante / Miembro) con navegación inferior persistente (Inicio, Hogares, Miembros, Gastos, Aportes, Ajustes). La capa de **aplicación** orquesta casos de uso To-Be; la de **dominio** encapsula reglas de negocio; y la de **infraestructura** implementa clientes HTTP hacia los endpoints documentados en el Capítulo V.
+
+#### Alcance To-Be implementado y trazabilidad
+
+Las funcionalidades móviles del release To-Be se derivan de las historias **US-TB-01 a US-TB-04** (sección 8.3.1) y del backlog **PB-TB-001 a PB-TB-010** (sección 8.3.2). La siguiente tabla resume la trazabilidad entre historia, ítems de backlog y evidencia visual:
+
+<table border="1">
+<tr><th>Historia To-Be</th><th>Funcionalidad móvil</th><th>Ítems PB-TB</th><th>Evidencia (capturas)</th></tr>
+<tr><td>US-TB-01</td><td>Registro y actualización de ingreso mensual por miembro</td><td>PB-TB-001, PB-TB-002, PB-TB-003</td><td>Flujo 2 — Registro de ingresos</td></tr>
+<tr><td>US-TB-02</td><td>Activación de estrategia IncomeBased en el hogar</td><td>PB-TB-004, PB-TB-005, PB-TB-006</td><td>Flujo 3 — Configuración IncomeBased</td></tr>
+<tr><td>US-TB-03</td><td>Visualización del desglose de contribución por gasto</td><td>PB-TB-007, PB-TB-008, PB-TB-016</td><td>Flujo 3 — Desglose en Aportes y detalle de gasto</td></tr>
+<tr><td>US-TB-04</td><td>Marcado de contribución como pagada y seguimiento de avance</td><td>PB-TB-009, PB-TB-010</td><td>Flujo 4 — Pagos del gasto</td></tr>
+</table>
+
+Adicionalmente, el flujo de **autenticación** (Login y registro con selección de rol) habilita el acceso diferenciado por Representante o Miembro, prerrequisito de todos los flujos To-Be anteriores.
+
+#### Evidencia de Versionado (Control de Código)
+
+El código fuente de la Mobile App se aloja en GitHub bajo control de versiones Git, con integración de cambios mediante Pull Requests y estrategia de ramificación **GitFlow** (main, develop y ramas feature/*). Los releases To-Be se integran a develop y se promueven a main tras revisión del equipo.
+
+Repositorio: https://github.com/EQUILIBRIAC/Budgetly-MobileApp
+
+#### Integración con la API RESTful
+
+La Mobile App consume los endpoints del backend desplegado en Azure. Los flujos To-Be documentados utilizan principalmente los siguientes recursos:
+
+<table border="1">
+<tr><th>Flujo To-Be</th><th>Endpoint(s) consumido(s)</th><th>Método</th></tr>
+<tr><td>Login / Registro</td><td><code>/api/v1/authentication/sign-in</code>, <code>/api/v1/authentication/sign-up</code></td><td>POST</td></tr>
+<tr><td>Registro de ingresos (US-TB-01)</td><td><code>/api/v1/user_income</code>, <code>/api/v1/user_income/byid/{id}</code>, <code>/api/v1/household_member/household/{householdId}</code></td><td>POST, PUT, GET</td></tr>
+<tr><td>Activar IncomeBased (US-TB-02)</td><td><code>/api/v1/house_hold/{Id}</code> (estrategia del hogar)</td><td>PUT</td></tr>
+<tr><td>Consultar gastos y aportes (US-TB-03)</td><td><code>/api/v1/bills/byhousehold/{householdId}</code>, <code>/api/v1/contribution/byhouseholdid/{householdId}</code>, <code>/api/v1/member_contribution/bycontributionid/{contributionId}</code></td><td>GET</td></tr>
+<tr><td>Marcar contribución pagada (US-TB-04)</td><td><code>/api/v1/member_contribution/{id}</code> (actualización de estado)</td><td>PUT</td></tr>
+</table>
+
+Documentación Swagger del backend: https://budgetly-api-dev-dxcfedfvdxeebad5.chilecentral-01.azurewebsites.net/swagger/index.html
+
+#### Evidencia de Interfaz y Funcionalidad (Screenshots)
+
+**1. Login**
+
+Pantalla de autenticación que valida credenciales contra el endpoint `/api/v1/authentication/sign-in` y enruta al dashboard según el rol del usuario (Representante o Miembro). Incluye registro con selección de tipo de cuenta.
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-login2.png" alt="Vista de Login — Sign In" width="400"/>
+	<img src="../assets/chapter-08/mobile-login1.png" alt="Vista de Login — Create Account" width="400"/>
+</p>
+
+**2. Registro de ingresos de miembros**
+
+Vista del representante para registrar o actualizar el ingreso mensual de cada miembro del hogar; los datos se persisten en la API y habilitan el cálculo proporcional IncomeBased. Se muestra el total de ingresos declarados del hogar y la acción **Guardar ingreso** por miembro.
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-mobile1.png" alt="Vista de Registro de ingresos — resumen del hogar" width="400"/>
+	<img src="../assets/chapter-08/mobile-ingresos2.png" alt="Vista de Registro de ingresos — edición por miembro" width="400"/>
+	<img src="../assets/chapter-08/mobile-ingresos3.png" alt="Vista de Registro de ingresos — listado de miembros" width="400"/>
+</p>
+
+**3. Configuración IncomeBased y desglose de contribuciones**
+
+Pantalla de configuración del hogar donde se activa la estrategia IncomeBased con resumen de porcentajes por miembro, listado de gastos del hogar y vista de aportes con desglose proporcional (ej. luz S/ 240 repartida como S/ 100 / S/ 60 / S/ 50 / S/ 30 según ingresos S/ 5 000 / S/ 3 000 / S/ 2 500 / S/ 1 500).
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-incomebased1.png" alt="Vista de Configuración IncomeBased — activación del reparto proporcional" width="400"/>
+	<img src="../assets/chapter-08/mobile-incomebased4.png" alt="Vista de Gastos del hogar — facturas registradas" width="400"/>
+	<img src="../assets/chapter-08/mobile-incomebased2.png" alt="Vista de Aportes — desglose IncomeBased por miembro" width="400"/>
+	<img src="../assets/chapter-08/mobile-incomebased3.png" alt="Vista de Aportes — desglose de facturas Agua y Gas" width="400"/>
+</p>
+
+**4. Marcado de contribución como pagada**
+
+Interfaz del representante para acceder a los pagos de un gasto, consultar el desglose IncomeBased y cambiar el estado de una contribución de **Pendiente** a **Pagada**, reflejando el avance del gasto compartido en tiempo real (barra de progreso y porcentaje completado).
+
+<p align="center">
+	<img src="../assets/chapter-08/mobile-contribucion-pagada3.png" alt="Vista de Gastos — acceso a pagos y desglose" width="400"/>
+	<img src="../assets/chapter-08/mobile-contribucion-pagada1.png" alt="Vista de Pagos del gasto — contribuciones pendientes" width="400"/>
+	<img src="../assets/chapter-08/mobile-contribucion-pagada2.png" alt="Vista de desglose IncomeBased del gasto Agua" width="400"/>
+	<img src="../assets/chapter-08/mobile-contribucion-pagada4.png" alt="Vista de Pagos del gasto — contribuciones marcadas como pagadas" width="400"/>
+</p>
+
+#### Validación (Quality Engineering)
+
+Las vistas documentadas fueron verificadas mediante las siguientes actividades de calidad, alineadas al Capítulo VI y al experimento To-Be:
+
+| Actividad | Herramienta / método | Resultado |
+|-----------|---------------------|-----------|
+| Análisis estático | `flutter analyze` (`flutter_lints`) | Cumplimiento de *Effective Dart* antes de integrar cambios |
+| Pruebas de integración | Consumo de API RESTful en entorno Azure | Flujos US-TB-01 a US-TB-04 operativos desde la app móvil |
+| Escenarios BDD | Historias US-TB-01 a US-TB-04 (sección 8.3.1) | Rutas feliz, triste y alternativa cubiertas en backend; UI refleja estados esperados |
+| Validación del experimento | Escenario IncomeBased del Cap. VI y 8.3 | Desglose proporcional coherente con la lógica validada (ej. reparto S/ 240 / S/ 384 / S/ 576 para el escenario de 3 miembros; reparto S/ 100 / S/ 60 / S/ 50 / S/ 30 para luz S/ 240 con 4 miembros en las capturas) |
+| Revisión por pares | Pull Requests en GitHub | Cambios To-Be integrados bajo GitFlow con revisión del equipo |
+
+Los flujos críticos —registro de ingresos, activación de IncomeBased, visualización de desglose y confirmación de pagos— consumen correctamente los endpoints del backend y mantienen consistencia con la lógica de negocio validada en el Capítulo VI, habilitando el uso de la Mobile App como canal del **Grupo B** en el experimento controlado de la sección 8.3.
+
+### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
+
+#### Resumen de Arquitectura y Despliegue
+
+El backend To-Be de **Budgetly** se implementó con **ASP.NET Core 9 (C#)** bajo un **monolito modular** organizado por **Domain-Driven Design (DDD)**. Cada bounded context expone controladores REST independientes bajo el prefijo versionado /api/v1/, con autenticación **JWT Bearer** en rutas protegidas (ícono de candado en Swagger). La persistencia usa **Entity Framework Core** sobre base de datos relacional. El flujo de entrega integra **GitFlow** (main, develop, feature/*), pipeline **GitHub Actions** (dotnet restore, dotnet build, dotnet test, dotnet publish), empaquetado **Docker** en **GHCR** y despliegue en **Azure Web App** (Chile Central). Los clientes Web (Vue.js), Mobile (Flutter) y el experimento To-Be (Grupo B) consumen la misma instancia desplegada.
+
+#### Bounded Contexts y Controladores Implementados
+
+<table border="1">
+<tr><th>Bounded Context</th><th>Controlador Swagger</th><th>Responsabilidad To-Be</th><th>Historia US-TB</th></tr>
+<tr><td>IAM</td><td>Authentication, User</td><td>Registro, login JWT y gestión de perfiles por rol</td><td>Prerrequisito</td></tr>
+<tr><td>Households</td><td>HouseHold, HouseholdMember, Invitation</td><td>Creación de hogar, membresía, invitaciones y roles</td><td>Prerrequisito</td></tr>
+<tr><td>Incomes</td><td>UserIncome</td><td>Registro y actualización de ingreso mensual por miembro</td><td>US-TB-01</td></tr>
+<tr><td>Allocations</td><td>IncomeAllocation, HouseHold (estrategia)</td><td>Configuración y cálculo IncomeBased por porcentaje de ingreso</td><td>US-TB-02</td></tr>
+<tr><td>Bills</td><td>Bills</td><td>Registro y consulta de facturas compartidas del hogar</td><td>US-TB-03</td></tr>
+<tr><td>Contributions</td><td>Contribution, MemberContribution</td><td>Desglose de aportes por miembro y marcado de pagos</td><td>US-TB-03, US-TB-04</td></tr>
+<tr><td>Settings</td><td>Settings</td><td>Preferencias de usuario (idioma, moneda, notificaciones)</td><td>Operación</td></tr>
+</table>
+
+#### Evidencia de Versionado
+
+Repositorio: https://github.com/EQUILIBRIAC/Budgetly-BackEnd
+
+Los releases To-Be se integran mediante Pull Requests hacia develop y se promueven a main tras revisión del equipo. Cada imagen Docker publicada en GHCR se etiqueta con el hash del commit desplegado, lo que permite trazar qué versión del backend alimenta el experimento del Grupo B.
+
+#### Documentación y Consumo de la API
+
+La API expone una interfaz RESTful documentada con **Swagger/OpenAPI** en el entorno Azure. URL de consulta interactiva:
+
+https://budgetly-api-dev-dxcfedfvdxeebad5.chilecentral-01.azurewebsites.net/swagger/index.html
+
+A continuación se detallan los controladores implementados, agrupados por bounded context. Todos los endpoints protegidos requieren header Authorization: Bearer {token} obtenido desde sign-in.
+
+**1. Authentication (IAM)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/authentication/sign-in</td><td>Valida credenciales y retorna JWT</td></tr>
+<tr><td>POST</td><td>/api/v1/authentication/sign-up</td><td>Registra usuario con rol Representante o Miembro</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-auth-user.png" alt="Swagger — Authentication y User" width="700"/>
+</p>
+
+**2. User (IAM)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/user/user/{id}</td><td>Obtiene usuario por Id</td></tr>
+<tr><td>GET</td><td>/api/v1/user</td><td>Lista todos los usuarios</td></tr>
+<tr><td>GET</td><td>/api/v1/user/householdid/{mainHouseHoldId}</td><td>Obtiene usuarios asociados a un hogar</td></tr>
+<tr><td>PUT</td><td>/api/v1/user/byemail/{emailAddress}</td><td>Actualiza perfil por email</td></tr>
+<tr><td>DELETE</td><td>/api/v1/user/byemail/{email}</td><td>Elimina usuario por email</td></tr>
+</table>
+
+**3. UserIncome (Incomes — US-TB-01)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/user-income</td><td>Crea ingreso mensual de un miembro</td></tr>
+<tr><td>GET</td><td>/api/v1/user-income/{id}</td><td>Obtiene ingreso por Id</td></tr>
+<tr><td>GET</td><td>/api/v1/user-income/byuserid/{userId}</td><td>Lista ingresos de un usuario</td></tr>
+<tr><td>PUT</td><td>/api/v1/user-income/byid/{id}</td><td>Actualiza monto; dispara recálculo IncomeBased</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-income-contribution.png" alt="Swagger — UserIncome y Contribution" width="700"/>
+</p>
+
+**4. Contribution (Contributions — US-TB-03)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/contribution</td><td>Lista todas las contribuciones</td></tr>
+<tr><td>POST</td><td>/api/v1/contribution</td><td>Crea contribución asociada a una factura</td></tr>
+<tr><td>GET</td><td>/api/v1/contribution/{id}</td><td>Obtiene contribución por Id</td></tr>
+<tr><td>DELETE</td><td>/api/v1/contribution/{id}</td><td>Elimina contribución</td></tr>
+<tr><td>GET</td><td>/api/v1/contribution/bybillid/{billId}</td><td>Contribuciones de una factura</td></tr>
+<tr><td>GET</td><td>/api/v1/contribution/byhouseholdid/{householdId}</td><td>Contribuciones del hogar</td></tr>
+<tr><td>PUT</td><td>/api/v1/contribution/byid/{id}</td><td>Actualiza contribución</td></tr>
+</table>
+
+**5. Bills (Bills — US-TB-03)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/bills</td><td>Lista todas las facturas</td></tr>
+<tr><td>POST</td><td>/api/v1/bills</td><td>Registra nueva factura compartida</td></tr>
+<tr><td>GET</td><td>/api/v1/bills/byhousehold/{householdId}</td><td>Facturas de un hogar</td></tr>
+<tr><td>PUT</td><td>/api/v1/bills/byid/{id}</td><td>Actualiza factura</td></tr>
+<tr><td>DELETE</td><td>/api/v1/bills/{id}</td><td>Elimina factura</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-contribution-bills.png" alt="Swagger — Contribution y Bills" width="700"/>
+</p>
+
+**6. HouseHold (Households — US-TB-02)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/house_hold/{id}</td><td>Consulta hogar y estrategia de reparto</td></tr>
+<tr><td>PUT</td><td>/api/v1/house_hold/{id}</td><td>Actualiza hogar; activa IncomeBased</td></tr>
+<tr><td>POST</td><td>/api/v1/house_hold</td><td>Crea nuevo hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/house_hold/representative/{representativeId}</td><td>Hogares de un representante</td></tr>
+</table>
+
+**7. HouseholdMember (Households)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/household_member</td><td>Agrega miembro al hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member</td><td>Lista todos los miembros</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/{id}</td><td>Obtiene miembro por Id</td></tr>
+<tr><td>PUT</td><td>/api/v1/household_member/{id}</td><td>Actualiza miembro</td></tr>
+<tr><td>DELETE</td><td>/api/v1/household_member/{id}</td><td>Elimina miembro</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/household/{householdId}</td><td>Miembros de un hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/household/{householdId}/detailed</td><td>Miembros con ingresos y porcentajes</td></tr>
+<tr><td>GET</td><td>/api/v1/household_member/user/{userId}</td><td>Membresías de un usuario</td></tr>
+<tr><td>POST</td><td>/api/v1/household_member/{id}/promote-representative</td><td>Promueve miembro a representante</td></tr>
+<tr><td>POST</td><td>/api/v1/household_member/{id}/demote-representative</td><td>Degrada representante</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-household-member.png" alt="Swagger — HouseHold y HouseholdMember" width="700"/>
+</p>
+
+**8. IncomeAllocation (Allocations — US-TB-02)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/income_allocation/byhousehold/{householdId}</td><td>Porcentajes IncomeBased del hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/income_allocation/byuserid/{userId}</td><td>Asignaciones de un usuario</td></tr>
+<tr><td>POST</td><td>/api/v1/income_allocation</td><td>Crea asignación de ingreso</td></tr>
+<tr><td>PUT</td><td>/api/v1/income_allocation/byid/{id}</td><td>Actualiza porcentaje de asignación</td></tr>
+<tr><td>DELETE</td><td>/api/v1/income_allocation/{id}</td><td>Elimina asignación</td></tr>
+</table>
+
+**9. Settings**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/settings</td><td>Obtiene configuración del usuario autenticado</td></tr>
+<tr><td>POST</td><td>/api/v1/settings</td><td>Crea preferencias (idioma, moneda, notificaciones)</td></tr>
+<tr><td>PUT</td><td>/api/v1/settings/{id}</td><td>Actualiza configuración</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-allocation-settings.png" alt="Swagger — IncomeAllocation y Settings" width="700"/>
+</p>
+
+**10. MemberContribution (Contributions — US-TB-04)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>GET</td><td>/api/v1/member_contribution</td><td>Lista aportes individuales por miembro</td></tr>
+<tr><td>POST</td><td>/api/v1/member_contribution</td><td>Crea aporte de miembro</td></tr>
+<tr><td>GET</td><td>/api/v1/member_contribution/bycontributionid/{contributionId}</td><td>Desglose por miembro de una contribución</td></tr>
+<tr><td>GET</td><td>/api/v1/member_contribution/bymemberid/{memberId}</td><td>Aportes pendientes/pagados de un miembro</td></tr>
+<tr><td>PUT</td><td>/api/v1/member_contribution/{id}</td><td>Marca aporte como Pagada (Pendiente → Pagada)</td></tr>
+<tr><td>DELETE</td><td>/api/v1/member_contribution/{id}</td><td>Elimina aporte de miembro</td></tr>
+</table>
+
+**11. Invitation (Households)**
+
+<table border="1">
+<tr><th>Método</th><th>Endpoint</th><th>Propósito</th></tr>
+<tr><td>POST</td><td>/api/v1/invitations</td><td>Envía invitación a unirse al hogar</td></tr>
+<tr><td>GET</td><td>/api/v1/invitations/pending</td><td>Consulta invitaciones pendientes por email+hogar</td></tr>
+</table>
+
+<p align="center">
+	<img src="../assets/chapter-08/backend-swagger-membercontribution-invitation.png" alt="Swagger — MemberContribution e Invitation" width="700"/>
+</p>
+
+#### Evidencia de Pipeline (CI/CD)
+
+<p align="center">
+	<img src="../assets/chapter-07/backend-build.png" alt="Pipeline CI del backend — build y pruebas automatizadas" width="700"/>
+	<img src="../assets/chapter-07/backend-deploy.png" alt="Pipeline CD del backend — publicación Docker en GHCR y despliegue en Azure Web App" width="700"/>
+</p>
+
+#### Verificación, Validación (V&V) y Observabilidad
+
+El backend cumple con los principios de **Quality Engineering** del Capítulo VI. Los endpoints To-Be están respaldados por **17 pruebas unitarias** (IncomeBased, Bills, Contributions, IAM, IncomeAllocation) y **5 pruebas de integración** (Sign Up, creación de hogar, registro de gastos, invitaciones, IncomeAllocation) con xUnit y EF Core In-Memory. Los escenarios **BDD SpecFlow** de US-TB-01 a US-TB-04 validan Happy Path y Sad Path: montos inválidos en ingresos, bloqueo de IncomeBased sin ingresos completos, consulta de desglose y denegación de marcado de pagos sin rol de representante. El pipeline CI ejecuta dotnet test en cada Pull Request. ASP.NET Core registra **logs estructurados** vía ILogger por request, excepción y operación de dominio; son consultables en Azure Web App para diagnosticar incidencias durante las sesiones del experimento To-Be.
+
+### 8.3.3.6. Team Collaboration Insights
+
+#### Gestión de Configuración y Ramas
+
+El equipo adoptó **Gitflow** sobre **GitHub** como estrategia de ramificación para los repositorios de Budgetly (BackEnd, FrontEnd, MobileApp y Documentation). La rama **main** concentra las versiones estables desplegadas en Azure y Firebase; **develop** integra los cambios validados del release To-Be; y las ramas **feature/** (ej. feature/cambios-backend) y **tests** aíslan el trabajo experimental y las suites de prueba antes de fusionarse. Este esquema redujo el riesgo de integración masiva al final del sprint: cada miembro trabajó en ramas propias, abrió Pull Request hacia develop y solo promovió a main tras pasar CI y revisión. La línea principal quedó protegida de commits directos y de código no validado, alineada al experimento To-Be documentado en la sección 8.3.
+
+**Herramientas:** GitHub (control de versiones, Pull Requests, GitHub Actions), backlog To-Be en secciones 8.3.1–8.3.2 del repositorio de documentación, y coordinación del equipo mediante reuniones de sprint y canal de mensajería grupal.
+
+#### Evidencia de Historial Git
+
+Gráfico de red del repositorio **Budgetly-BackEnd** (Insights → Network), con ramas main, develop, feature/cambios-backend y tests entre abril y julio:
+
+<p align="center">
+	<img src="../assets/chapter-08/team-git-network.png" alt="Gráfico de red Git — Budgetly-BackEnd" width="800"/>
+</p>
+
+#### Cultura DevOps y Disciplina de CI
+
+El equipo operó bajo **responsabilidad compartida** entre desarrollo y operaciones: nadie “lanzaba y olvidaba” el despliegue. Los acuerdos de Integración Continua fueron:
+
+- **Don't check-in on a broken build:** no se fusiona a develop ni a main si el pipeline de GitHub Actions falla (dotnet build, dotnet test o despliegue a Azure).
+- **Resolución colaborativa de conflictos:** los conflictos de merge se resuelven en la rama feature o en el PR, con revisión del autor y del revisor antes del merge.
+- **Checks obligatorios:** cada Pull Request dispara Backend CI/CD y el workflow de despliegue ASP.NET Core hacia Azure Web App (budgetly-api-dev).
+- **Trazabilidad por commit:** las imágenes Docker en GHCR se etiquetan con el hash del commit, vinculando cada despliegue a un cambio revisado.
+
+Los workflows registran ejecuciones por push y por Pull Request en ramas main y develop, con intervención de varios integrantes (Angelo5214, JKOlimpo, entre otros). Los fallos de CI se corrigen antes de reintentar el merge, evitando propagar regresiones al entorno usado por el Grupo B del experimento.
+
+<p align="center">
+	<img src="../assets/chapter-08/team-github-actions.png" alt="GitHub Actions — historial de workflows Backend CI/CD" width="800"/>
+</p>
+
+#### Evidencia de Code Review / Gestión
+
+Los cambios del backend To-Be se integraron mediante **Pull Requests** revisados en GitHub. El repositorio Budgetly-BackEnd registra PRs #1, #2 y #3 desde develop hacia main, fusionados tras validación del pipeline:
+
+<p align="center">
+	<img src="../assets/chapter-08/team-pull-requests.png" alt="Pull Requests cerrados — Budgetly-BackEnd" width="800"/>
+</p>
+
+Distribución de aportes To-Be (referencia Cap. V): **Renzo Uribe**  backend y endpoints; **Angelo Solano**  lógica de contribuciones y Mobile App; **Carlos Guimaraes** y **Martin Gonzales**  frontend web; **Camila Huamani**  usuarios y configuración.
+
+#### Madurez del Equipo
+
+La combinación de Gitflow, Pull Requests, CI automatizado y comunicación directa entre roles permitió escalar el desarrollo To-Be sin perder estabilidad en main. El equipo priorizó entregas incrementales revisables features IncomeBased, ingresos y pagos sobre integraciones monolíticas al cierre del sprint.
+
+## 8.3.4. To-Be Validation Interviews
+
+### 8.3.4.1. Diseño de Entrevistas
+
+El objetivo de estas entrevistas de validación To-Be es evaluar si la versión implementada de **Budgetly** comunica correctamente su propuesta de valor, si el usuario comprende el cálculo proporcional **IncomeBased** y si la experiencia de navegación de la página y la aplicación resulta clara para usuarios del segmento objetivo. La entrevista se realiza mostrando la landing page y, posteriormente, las pantallas principales de la aplicación relacionadas con registro de ingresos, creación de hogar, desglose de contribuciones y marcado de pagos.
+
+**Perfil del entrevistado:** personas que conviven con familiares, pareja o roommates y participan en la organización de gastos compartidos del hogar. Se priorizan participantes que hayan usado métodos manuales como Excel, notas, calculadora o acuerdos verbales para repartir pagos.
+
+**Duración estimada:** 15 a 20 minutos.
+
+**Materiales utilizados:**
+
+- Landing page de Budgetly.
+- Web Application desplegada en Firebase.
+- Capturas o demo del flujo To-Be: registro de ingresos, activación de IncomeBased, visualización del desglose y marcado de contribución pagada.
+- Formulario de registro de respuestas del entrevistador.
+
+**Guion de introducción:**
+
+> Gracias por participar. Te mostraremos una página y algunas pantallas de Budgetly, una aplicación para organizar gastos del hogar y calcular aportes proporcionales según los ingresos de cada miembro. No estamos evaluando tus conocimientos, sino si la propuesta se entiende, si la navegación es clara y qué mejoras podríamos aplicar antes del lanzamiento.
+
+#### Preguntas de contexto
+
+1. ¿Con quién vives actualmente y cómo suelen organizar los gastos del hogar?
+2. ¿Qué método usan hoy para dividir gastos compartidos: Excel, notas, calculadora, aplicaciones, acuerdos verbales u otro?
+3. ¿Qué tan justo consideras el método actual para repartir los pagos? ¿Por qué?
+4. ¿Han tenido confusiones, retrasos o desacuerdos por no saber cuánto debe pagar cada persona?
+5. ¿Qué información necesitarías ver para confiar en un cálculo automático de aportes?
+
+#### Preguntas sobre la landing page
+
+1. Al ver la página principal, ¿qué entiendes que ofrece Budgetly?
+2. ¿La propuesta de dividir gastos según ingresos se comunica de forma clara?
+3. ¿Qué sección de la página te genera más confianza o interés?
+4. ¿Hay alguna palabra, frase o beneficio que no se entienda bien?
+5. Después de revisar la página, ¿te registrarías para probar la aplicación? ¿Qué te haría decidirte?
+
+#### Preguntas sobre el flujo To-Be de la aplicación
+
+1. Al ver el registro de ingresos, ¿te queda claro qué dato debes ingresar?
+2. ¿El término "Ingreso mensual" te parece claro o necesitaría especificar si se refiere a ingreso neto o bruto?
+3. Al observar el desglose de contribuciones por gasto, ¿entiendes por qué cada miembro paga un monto diferente?
+4. ¿El cálculo proporcional te parece más justo que dividir el gasto en partes iguales? ¿En qué casos sí o no?
+5. ¿La pantalla de contribuciones te permite identificar fácilmente quién pagó, quién está pendiente y cuánto falta completar?
+6. ¿El flujo para marcar una contribución como pagada te parece claro y confiable?
+7. ¿Qué información adicional necesitarías antes de aceptar el monto calculado por Budgetly?
+
+#### Preguntas de percepción y cierre
+
+1. Del 1 al 5, ¿qué tan fácil te pareció entender la propuesta de Budgetly?
+2. Del 1 al 5, ¿qué tan justo percibes el reparto proporcional basado en ingresos?
+3. Del 1 al 5, ¿qué tanta confianza tendrías en usar Budgetly para gastos reales de tu hogar?
+4. ¿Qué funcionalidad te parece más útil: registro de ingresos, desglose de aportes, recordatorios, reportes o marcado de pagos?
+5. ¿Qué cambiarías de la página o de la aplicación para que sea más clara?
+6. ¿Recomendarías Budgetly a alguien que comparte gastos en su hogar? ¿Por qué?
+
+**Criterios de evaluación de la entrevista:**
+
+| Criterio | Qué se busca validar | Evidencia esperada |
+|---|---|---|
+| Comprensión de la propuesta | El usuario entiende que Budgetly reparte gastos según ingresos. | Explica la idea con sus propias palabras. |
+| Claridad del cálculo IncomeBased | El usuario comprende por qué los montos son distintos entre miembros. | Identifica la relación ingreso-aporte. |
+| Confianza en el sistema | El usuario considera razonable usar el cálculo en un caso real. | Declara confianza media o alta en la solución. |
+| Usabilidad del flujo | El usuario entiende las acciones principales sin explicación extensa. | Puede describir cómo registrar ingresos, ver aportes y marcar pagos. |
+| Intención de uso | El usuario muestra disposición a probar o recomendar Budgetly. | Respuesta positiva en preguntas de cierre. |
+
+### 8.3.4.2. Registro de Entrevistas
+
+En esta sección se registran las entrevistas de validación realizadas para evaluar la comprensión de la propuesta de valor de **Budgetly**, la claridad de la landing page y la percepción del usuario frente al flujo To-Be de la aplicación. Cada entrevista fue registrada en video como evidencia y se documenta con los datos solicitados: nombres y apellidos, edad, distrito, captura del cuadro de video, URL del video en Microsoft Stream, timing de inicio, duración y resumen descriptivo de las principales apreciaciones del entrevistado.
+
+#### Entrevista 1
+
+| Campo | Registro |
+|---|---|
+| Segmento objetivo | Representante del hogar |
+| Nombres y apellidos | Eduardo Gael Rivera Sosa |
+| Edad | 20 |
+| Distrito | San Juan De Lurigancho |
+| Entrevistador | Renzo Sebastián Uribe Livia |
+| Fecha de entrevista | 08/07/2026 |
+| Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaGael.png" alt="Screenshot de entrevista a Eduardo Gael Rivera Sosa" width="500"/></p> |
+| URL del video | https://youtu.be/Fc1dUrcYfIk |
+| Timing de inicio | 00:01 |
+| Duración | 7:59 |
+| Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
+| Resumen de la entrevista | Se mostro el flujo completo de la aplicacion a un representante de la familia, menciona que vive solo y basicamente solo el maneja sus propios gastos, al enseñarle la pagina quedo impresioado de las funcionalidades, despues de las preguntas el usuario final confirma que utilizaria la pagina con unicamente una sugerencia en el apartado de los gastos. |
+
+#### Entrevista 2
+
+| Campo | Registro |
+|---|---|
+| Segmento objetivo | Representante del hogar |
+| Nombres y apellidos | Alvaro Javier Gomez Huaman |
+| Edad | 20 |
+| Distrito | Ica |
+| Entrevistador | Renzo Sebastián Uribe Livia |
+| Fecha de entrevista | 08/07/2026 |
+| Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaAlvaro.png" alt="Screenshot de entrevista a Alvaro Javier Gomez Huaman" width="500"/></p> |
+| URL del video | https://youtu.be/m_0XP6vUGrs |
+| Timing de inicio | 00:01 |
+| Duración | 10:33 |
+| Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
+| Resumen de la entrevista | Se mostro el flujo completo de la aplicacion a un representante de gastos de la familia, menciona que vive con 2 hermanas por lo tanto tiene dificultades para organizar los gastos totales, se le presento la aplicacion y se mostro duditativo, ya que el sentia que algunas cosas podian mejorar y lo brindo de suferencia, informo que si la utilizaria si subsanaban esos ajustes e incluso recomendandola a otros usuarios, esta dispuesto a introducir sus gastos ya que la interfaz le parece adecuada y minimalista y transmite confianza. |
+
+
+## 8.4. Experiment Aftermath & Analysis
+
+### 8.4.1. Analysis and Interpretation of Results
+
+Tras la ejecución del experimento descrito en la sección 8.3 (reparto manual vs. Budgetly con estrategia *IncomeBased*), se recopilaron los datos de los 24 participantes (12 por grupo) durante las 2 semanas establecidas. A continuación, se presenta el análisis estadístico de las variables dependientes definidas en la matriz de variables, junto con la interpretación de los hallazgos.
+
+#### A. Resultados por variable dependiente
+
+| Variable | Grupo A (Manual) M (SD) | Grupo B (Budgetly IncomeBased) M (SD) | t (gl=22) | p-valor | Decisión (α = 0,05) |
+|---|---|---|---|---|---|
+| VD1 – Equidad percibida (1–5) | 3.1 (0.9) | 4.3 (0.6) | 3.85 | 0.0009 | Se rechaza H₀ → soporta H₁ |
+| VD2 – Tiempo de resolución (segundos) | 245 (58) | 97 (22) | 8.10 | < 0.001 | Se rechaza H₀ → soporta H₁ |
+| VD3 – Confianza en el resultado (1–5) | 3.4 (0.8) | 4.5 (0.5) | 4.02 | 0.0006 | Se rechaza H₀ → soporta H₁ |
+| VD4 – Intención de uso (1–5) | 3.0 (1.0) | 4.1 (0.7) | 3.15 | 0.0047 | Se rechaza H₀ → soporta H₁ |
+
+En las cuatro variables dependientes se observaron diferencias estadísticamente significativas a favor del Grupo B (Budgetly con *IncomeBased*), por lo que se rechaza la hipótesis nula (H₀) planteada en 8.3 y se acepta la hipótesis alternativa (H₁): el reparto automatizado mediante *IncomeBased* genera mayor equidad percibida, mayor confianza y mayor intención de uso, además de reducir significativamente el tiempo de resolución de la tarea frente al método manual.
+
+#### B. Análisis de variables de control (VC-01, VC-02, VC-03)
+
+| Variable de control | Hallazgo | Implicancia |
+|---|---|---|
+| VC-01 – Familiaridad con Excel | Distribución balanceada entre grupos (7/12 en Grupo A y 6/12 en Grupo B con alta familiaridad). Dentro del Grupo A, los participantes con alta familiaridad obtuvieron VD1 ligeramente mayor (3.4) que los de baja familiaridad (2.8), pero ambos subgrupos permanecen por debajo del promedio del Grupo B (4.3). | La familiaridad con Excel no explica la diferencia observada entre grupos; el efecto de *IncomeBased* se mantiene independientemente del nivel de experiencia previa con hojas de cálculo. |
+| VC-02 – Nivel de ingresos del hogar | El reclutamiento logró una distribución equivalente por cuartil de ingreso entre ambos grupos. | Se descarta que el nivel socioeconómico del participante sea un factor de confusión en los resultados. |
+| VC-03 – Sesgo de novedad | Puntuación promedio pre-tarea similar entre grupos (Grupo A = 3.6; Grupo B = 3.8; diferencia no significativa, p = 0.41). | El entusiasmo por probar una aplicación nueva no explica por sí solo la mejora observada en VD4 (intención de uso); el efecto es atribuible principalmente al mecanismo de cálculo proporcional.|
+
+#### C. Interpretación de los resultados
+
+1. **Validación de la Hipótesis 1 (Lean UX) y de C5 (Claim del Cap. VIII).** Los resultados respaldan empíricamente la afirmación de que los usuarios con ingresos dispares perciben la distribución proporcional como más justa que el reparto manual, confirmando el *Claim* C5 registrado en la sección 8.1.2.
+2. **Reducción del tiempo de resolución (VD2).** La reducción de ~60% en el tiempo de resolución (de 245s a 97s) constituye la señal más contundente del experimento y sustenta el valor de negocio de automatizar el cálculo, en línea con las fricciones identificadas en las entrevistas del Capítulo II (Abraham, Renzo, Ronald).
+3. **Limitación identificada.** El experimento comparó el método manual contra la experiencia completa de Budgetly (cálculo + interfaz visual), por lo que no es posible aislar cuánto del efecto proviene específicamente del cálculo *IncomeBased* y cuánto de la presentación visual del panel de contribuciones. Esta limitación mantiene vigente y **eleva la prioridad** de EXP-03 (Gráfico vs. texto), definido en 8.1.5, como próximo experimento a ejecutar dentro de la propia aplicación.
+4. **Nuevas brechas de conocimiento (Knowledge Gaps) identificadas durante la sesión:**
+
+| ID | Brecha de conocimiento identificada | Origen |
+|---|---|---|
+| KG9 | Se desconoce si el efecto de *IncomeBased* sobre la equidad percibida es proporcional a la disparidad de ingresos del hogar (a mayor disparidad, ¿mayor beneficio percibido?). | Observación cualitativa durante la ejecución del experimento (comentarios de participantes con ingresos similares entre sí). |
+| KG10 | La etiqueta "Ingreso mensual" generó dudas en 3 de 12 participantes del Grupo B sobre si debían declarar ingreso bruto o neto, lo que retrasó el registro de datos. | Observación del moderador durante la sesión; consistente con el hallazgo #5 de la auditoría de UX recibida (sección 6.4.2.3). |
+
+### 8.4.2. Re-scored and Re-prioritized Question Backlog
+
+A partir de los resultados obtenidos, se actualiza el backlog de preguntas presentado originalmente en la sección 8.1.4, ajustando prioridad, impacto y estado en función de la evidencia recolectada, e incorporando las preguntas emergentes (KG9, KG10).
+
+| Prioridad | ID | Pregunta | Impacto | Esfuerzo | Estado actualizado | Justificación del re-scoring |
+|---|---|---|---|---|---|---|
+| 1 | ERQ-04 | ¿La visualización gráfica de aportes proporcionales aumenta la percepción de equidad respecto a mostrar solo montos en texto? | Alto | Medio | **Reabierta / priorizada** | El experimento de 8.3 no permitió aislar el efecto de la UI del efecto del cálculo; se requiere ahora un A/B específico dentro de la app (EXP-03) para separar ambos factores. |
+| 2 | ERQ-NUEVA (KG10) | ¿La aclaración del término "Ingreso mensual" (bruto/neto) reduce el tiempo y los errores de registro de ingresos? | Alto | Bajo | **Nueva – Listo para experimentar** | Hallazgo directo de la sesión de moderación; bajo esfuerzo de implementación (cambio de copy) y alto impacto en la calidad del dato de entrada. |
+| 3 | ERQ-NUEVA (KG9) | ¿El beneficio percibido de *IncomeBased* es mayor en hogares con alta disparidad de ingresos que en hogares con ingresos similares? | Medio-Alto | Medio | **Nueva – En diseño** | Permite segmentar el mensaje de valor de la propuesta y priorizar el segmento con mayor sensibilidad al problema (Cap. I, Segmento objetivo 1). |
+| 4 | ERQ-02 | ¿Cuántos usuarios completan el flujo de onboarding (registro → hogar → primer gasto) sin abandonar? | Alto | Bajo | **Priorizada (sube)** | El registro de ingresos (prerrequisito de *IncomeBased*, US-TB-01) añade un paso adicional al onboarding; es necesario medir su impacto real en la tasa de completación en producción, no solo en entorno moderado. |
+| 5 | ERQ-01 | ¿Qué porcentaje de usuarios que visitan la landing page inician el proceso de registro? | Alto | Bajo | Listo para experimentar | Sin cambios; se mantiene como línea base de adquisición. |
+| 6 | ERQ-03 | ¿Los usuarios que reciben recordatorios automáticos registran sus pagos con mayor puntualidad que los que no los reciben? | Alto | Medio | Listo para experimentar | Sin cambios; pendiente de ejecución por restricciones de tiempo del ciclo académico. |
+| 7 | ERQ-06 | ¿El modo simulación en la landing page aumenta la tasa de registro comparado con no tenerlo? | Alto | Medio | En diseño | Baja ligeramente en prioridad frente a ERQ-04 y las preguntas emergentes, dado el tamaño de muestra elevado (~5,600 visitantes) requerido y los recursos limitados del equipo. |
+| 8 | ERQ-07 | ¿Los hogares con representante activo tienen mayor tasa de retención a 30 días que los hogares sin representante activo? | Alto | Alto | Pendiente | Sin cambios; requiere mayor volumen de hogares activos en producción del que se dispone actualmente. |
+| 9 | ERQ-08 | ¿Cuántos días tarda un usuario en registrar su segundo gasto después del primero? | Medio | Bajo | Listo para experimentar | Sin cambios. |
+| 10 | ERQ-05 | ¿Qué funcionalidades premium generan mayor intención de pago en los usuarios del plan gratuito? | Medio | Medio | Pendiente | Se mantiene en la parte inferior del backlog; la evidencia de este ciclo no aporta información nueva sobre monetización. |
+
+**Decisiones derivadas del re-scoring:**
+- Se promueve ERQ-04 al primer lugar del backlog, a ejecutarse como EXP-03 en el siguiente ciclo, dentro del propio flujo de la aplicación (no en un escenario moderado).
+- Se incorpora una mejora de bajo esfuerzo y alto impacto (aclaración del rótulo "Ingreso mensual") directamente al Product Backlog (ítem PB-TB-017, ver sección 8.5.1) sin necesidad de un experimento formal adicional, dado que la evidencia cualitativa ya es suficiente para justificar el cambio.
+- Se mantiene en observación la relación entre disparidad de ingresos y beneficio percibido (KG9) como candidato a un análisis de segmentación sobre datos ya recolectados, antes de invertir en un nuevo experimento controlado.
+
+---
+
+## 8.5. Continuous Learning
+
+### 8.5.1. Shareback Session Artifacts: Learning Workflow
+
+Al finalizar el ciclo de experimentación, el equipo Equilibria realizó una **sesión de shareback** (intercambio de aprendizajes) con el objetivo de comunicar los resultados obtenidos, alinear al equipo sobre las decisiones a tomar y actualizar los artefactos de producto (Product Backlog, Question Backlog) en función de la evidencia recolectada. Esta sección documenta el flujo de aprendizaje continuo aplicado y los artefactos generados durante dicha sesión.
+
+#### A. Flujo de aprendizaje continuo (Learning Workflow)
+
+El flujo seguido por el equipo para transformar los resultados del experimento en decisiones accionables fue el siguiente:
+
+1. **Recolección de evidencia:** consolidación de los datos cuantitativos (VD1–VD4) y las observaciones cualitativas del moderador durante las sesiones del experimento (sección 8.4.1).
+2. **Síntesis en Insight Cards:** cada hallazgo relevante se documentó en una tarjeta de aprendizaje estandarizada (ver formato en el punto B), asignándole un nivel de confianza y una acción recomendada.
+3. **Sesión de Shareback:** reunión de 45 minutos con todo el equipo, en la que se presentaron los resultados estadísticos, se discutieron las Insight Cards y se validaron las acciones propuestas.
+4. **Actualización de artefactos:** con base en los acuerdos de la sesión, se actualizó el Question Backlog (sección 8.4.2) y se incorporaron nuevos ítems al Product Backlog To-Be (sección 8.3.2).
+5. **Registro de decisiones:** cada decisión tomada (promover, descartar, seguir investigando) quedó documentada en un log de decisiones, trazable al experimento que la originó.
+6. **Definición del siguiente ciclo:** se seleccionó el siguiente experimento a ejecutar (EXP-03) y se re-priorizó el backlog de preguntas para el próximo sprint de experimentación.
+
+<p align="center">
+  <img src="https://i.imgur.com/6jjIx2a.png" alt="Commits made by the members of the team in the first progress"/>
+</p>
+
+#### B. Formato de Insight Card
+
+| Campo | Descripción |
+|---|---|
+| ID | Identificador único de la tarjeta de aprendizaje |
+| Experimento de origen | Referencia al experimento o pregunta que generó el hallazgo |
+| Enunciado del aprendizaje | Afirmación breve y clara sobre lo aprendido |
+| Nivel de confianza | Alto / Medio / Bajo, según robustez estadística y tamaño de muestra |
+| Evidencia de soporte | Datos, cita o métrica que sustenta el enunciado |
+| Acción recomendada | Qué debe hacer el equipo con este aprendizaje |
+| Responsable | Integrante encargado de dar seguimiento a la acción |
+
+#### C. Insight Cards generadas en la sesión
+
+**Insight Card #1**
+
+| Campo | Detalle |
+|---|---|
+| ID | IC-01 |
+| Experimento de origen | Experimento IncomeBased vs. Manual (8.3) |
+| Enunciado del aprendizaje | El reparto automatizado por ingresos reduce en ~60% el tiempo que toma a un hogar resolver la distribución de un gasto compartido. |
+| Nivel de confianza | Alto (p < 0.001, efecto consistente en las 4 variables dependientes) |
+| Evidencia de soporte | VD2: 245s (Grupo A) vs. 97s (Grupo B); t(22) = 8.10 |
+| Acción recomendada | Usar este resultado como mensaje principal de valor en la landing page y en el simulador propuesto en EXP-04. |
+| Responsable | Angelo Solano |
+
+**Insight Card #2**
+
+| Campo | Detalle |
+|---|---|
+| ID | IC-02 |
+| Experimento de origen | Experimento IncomeBased vs. Manual (8.3) |
+| Enunciado del aprendizaje | No es posible atribuir con certeza la mejora en equidad percibida solo al cálculo *IncomeBased*; la presentación visual del panel de contribuciones puede estar influyendo. |
+| Nivel de confianza | Medio (limitación metodológica identificada, no una medición directa) |
+| Evidencia de soporte | Diseño del experimento no aisló la variable de interfaz (texto vs. gráfico); ver 8.4.1-C.3 |
+| Acción recomendada | Ejecutar EXP-03 (Gráfico vs. texto) como experimento independiente dentro de la app en producción. |
+| Responsable | Camila Huamani |
+
+**Insight Card #3**
+
+| Campo | Detalle |
+|---|---|
+| ID | IC-03 |
+| Experimento de origen | Observación cualitativa durante moderación (8.3) |
+| Enunciado del aprendizaje | El rótulo "Ingreso mensual" genera ambigüedad (bruto vs. neto) en una parte relevante de los usuarios, afectando la calidad del dato registrado. |
+| Nivel de confianza | Medio (observación cualitativa en 3 de 12 participantes del Grupo B) |
+| Evidencia de soporte | Notas de moderador; consistente con hallazgo #5 de la auditoría UX recibida (6.4.2.3). |
+| Acción recomendada | Incorporar un texto de ayuda contextual en el campo de ingreso ("Ingresa tu ingreso neto mensual") sin necesidad de un experimento formal adicional. |
+| Responsable | Martin Gonzales |
+
+#### D. Decisiones registradas en la sesión de Shareback
+
+| # | Decisión | Tipo | Vinculado a |
+|---|---|---|---|
+| D1 | Promover EXP-03 (Gráfico vs. texto) al primer lugar del backlog de experimentación. | Promover | IC-02, ERQ-04 |
+| D2 | Incorporar mejora de copy en el campo "Ingreso mensual" directamente al Product Backlog, sin experimento previo. | Implementar directo | IC-03, PB-TB-017 |
+| D3 | Mantener en observación la relación entre disparidad de ingresos y beneficio percibido (KG9); evaluar con análisis de segmentación antes de invertir en un nuevo experimento. | Seguir investigando (bajo costo) | KG9 |
+| D4 | Postergar EXP-01, EXP-02 y EXP-04 para el siguiente ciclo por restricciones de tiempo del proyecto académico, manteniendo sus Experiment Cards vigentes (8.1.5). | Postergar | ERQ-01, ERQ-02, ERQ-06 |
+
+#### E. Artefactos generados por la sesión de Shareback
+
+- **Reporte de resultados del experimento** (sección 8.4.1), compartido con el equipo antes de la sesión.
+- **Tres Insight Cards** (IC-01, IC-02, IC-03), documentadas en el punto C.
+- **Backlog de preguntas re-priorizado** (sección 8.4.2).
+- **Nuevo ítem de Product Backlog** derivado de la sesión:
+
+| ID | Tipo | Descripción | Vinculado a | Prioridad | SP |
+|---|---|---|---|---|---|
+| PB-TB-017 | Funcional | Agregar texto de ayuda contextual "Ingresa tu ingreso neto mensual" en el formulario de registro de ingresos | US-TB-01 | Alta | 1 |
+
+- **Log de decisiones** (punto D), que queda como registro trazable para auditorías futuras y para el siguiente ciclo de experimentación del equipo.
+
+## 8.6. To-Be Software Platform Pre-launch
+
+### 8.6.1. About-the-Product Intro Video
+
+<p align="center">
+  <img src="https://i.imgur.com/5Xq3W8V.png" alt="Commits made by the members of the team in the fourth progress"/>
+</p>
+
+En el siguiente video se muestra una vista detallada del uso y proposito de la aplicación deasarrollada: https://shorturl.at/1Hyl0
+
+
+
+## Matriz de Evaluación Ética y de Impacto
+
+**Proyecto:** Budgetly (App de gestión financiera colaborativa del hogar, con cálculo proporcional de aportes según ingresos)
+
+La matriz permite demostrar la capacidad del equipo de reconocer sus responsabilidades éticas y profesionales, y emitir juicios informados considerando el impacto de la solución de ingeniería de software (Student Outcome 4). Se busca evitar el "sentido mercenario de la ingeniería" (donde solo se busca lograr un fin contratado sin cuestionarse el fin en sí mismo) y evidenciar un pensamiento crítico y reflexivo sobre las implicancias de Budgetly.
+
+---
+
+| Dimensión / Criterio a Evaluar | Identificación de Riesgos e Impactos (Positivos y Negativos) | Evaluación del Impacto (¿A quién afecta y cuál es la magnitud?) | Estrategias de Mitigación y Acciones de Diseño |
+|---|---|---|---|
+| **1. Salud Pública y Seguridad** | *Negativo:* Las notificaciones y alertas de pagos atrasados (US21, US22) pueden generar ansiedad financiera o intensificar conflictos domésticos preexistentes, especialmente en hogares con dinámicas de control económico entre miembros. La visibilidad del ingreso de cada persona podría ser usada como herramienta de presión o vigilancia dentro de relaciones desiguales de poder. *Positivo:* La transparencia reduce discusiones por dinero y el estrés asociado a la incertidumbre financiera (Hipótesis 1, sección 1.2.2.3). | *Afectados:* Miembros del hogar en situación de vulnerabilidad económica o emocional dentro de relaciones de convivencia (parejas, familias). *Magnitud:* Media — no es un riesgo físico directo, pero puede agravar tensiones ya existentes en hogares con dinámicas de control financiero. | *Acciones:* Diseñar el tono de las notificaciones (US21, US22) como recordatorios neutrales y no acusatorios ("Tienes un pago pendiente" en lugar de "No has pagado tu parte"). Permitir que cada miembro configure la visibilidad de su propio ingreso frente a otros miembros no representantes. Incluir, en la sección de ayuda (EP06), enlaces a recursos de apoyo ante situaciones de violencia económica dentro del hogar. |
+| **2. Inclusión y Accesibilidad** | *Negativo:* Budgetly requiere smartphone, conexión a Internet y cierto nivel de alfabetización digital y financiera para completar el registro de ingresos y comprender términos como "aporte proporcional" (identificado como riesgo en la sección 1.2.2.1 y en la auditoría UX, hallazgo 4.7 "Ayuda y documentación"). La auditoría de accesibilidad (6.3.3, sección 5) encontró etiquetas ARIA insuficientes y contraste deficiente en algunos componentes. *Positivo:* Automatiza cálculos financieros que hoy excluyen a quienes no dominan hojas de cálculo (Excel), ampliando el acceso a una gestión financiera justa. | *Afectados:* Personas con baja alfabetización digital, adultos mayores dentro del hogar, usuarios con discapacidad visual o motora, y personas sin acceso a un smartphone de gama media/alta. *Magnitud:* Alta — condiciona directamente quién puede usar la plataforma dentro del segmento objetivo definido en la sección 1.3. | *Acciones:* Incorporar onboarding guiado con lenguaje simple (ver Insight IC-03, sección 8.5.1). Completar las etiquetas ARIA y mejorar el contraste de color siguiendo las recomendaciones de la auditoría UX (6.3.3 y 6.4.2.3). Ofrecer una versión web ligera además de la app móvil para dispositivos de gama baja. Evaluar a futuro un modo de solo lectura por voz para miembros con discapacidad visual. |
+| **3. Impacto Social y Cultural** | *Negativo:* Declarar el ingreso personal ante otros miembros del hogar puede chocar con normas culturales donde el dinero es un tema privado, o generar comparaciones que alteren dinámicas de poder dentro de la convivencia (identificado parcialmente en la entrevista de Harri, sección 2.2.3, quien prefiere un método informal antes que uno basado en ingresos). *Positivo:* Fomenta una cultura de corresponsabilidad económica y reduce la carga mental que históricamente recae sobre un solo miembro del hogar (usualmente el "representante"), tal como se documenta en el Empathy Mapping (2.3.4). | *Afectados:* Todos los miembros del hogar, en particular quienes provienen de culturas o familias donde discutir ingresos es tabú, y el "representante del hogar", cuyo rol concentra la responsabilidad de gestión. *Magnitud:* Media — varía significativamente según el perfil cultural y la dinámica de cada hogar. | *Acciones:* Mantener el método `AllocationMethod` configurable (PROPORTIONAL_INCOME, EQUAL, MIXED, CUSTOM — sección 4.9.2) para que los hogares elijan el nivel de transparencia de ingresos que les resulte cómodo, en lugar de imponer un único modelo. Comunicar en el onboarding que declarar ingresos es opcional y reversible. |
+| **4. Impacto Económico** | *Negativo:* El modelo freemium (sección 1.2.2.2) podría excluir de las funcionalidades avanzadas (exportación, análisis histórico) a los hogares de menores recursos, que son precisamente el segmento con mayor necesidad de control financiero estricto. El registro de ingresos podría, en teoría, exponer información sensible con implicancias tributarias si se usa indebidamente. *Positivo:* Reduce pérdidas económicas por errores de cálculo manual (ver "Representación de costo promedio de errores en cálculos manuales", sección 1.2.1) y mejora la planificación financiera del hogar. | *Afectados:* Hogares de bajos ingresos que dependen del plan gratuito; usuarios cuya información de ingresos podría filtrarse (ver Dimensión 7). *Magnitud:* Media — el impacto económico directo es positivo para la mayoría, pero el riesgo de exclusión del plan premium y de exposición de datos requiere atención. | *Acciones:* Mantener las funciones esenciales de cálculo proporcional, alertas y reportes básicos en el plan gratuito (ya contemplado en el modelo freemium, 1.2.2.2), reservando para premium solo funciones de valor agregado no esenciales (exportación, personalización avanzada). Cifrar y limitar el acceso a los montos de ingreso (`Income.amount`) exclusivamente a los miembros autorizados del hogar. |
+| **5. Impacto Ambiental (Antrópico)** | *Negativo:* La infraestructura en la nube (Azure para el backend, Firebase Hosting para el frontend, sección 5.1.1 y 7.2.1) implica consumo energético continuo de los data centers, así como el tráfico de red generado por sincronizaciones y notificaciones push frecuentes (US21–US25). *Positivo:* Al digitalizar por completo la gestión de gastos del hogar, Budgetly reduce el uso de papel, recibos físicos y hojas de cálculo impresas frente a métodos tradicionales. | *Afectados:* Impacto ambiental indirecto y distribuido a nivel global, a través del consumo energético de los proveedores cloud (Azure, Firebase/Google Cloud). *Magnitud:* Baja — el volumen de datos y usuarios actual del proyecto es reducido, pero el impacto debe considerarse si la plataforma escala. | *Acciones:* Optimizar la frecuencia de las notificaciones automáticas (TS11, TS12) para evitar envíos redundantes. Preferir consultas eficientes en la API (paginación, filtros por rango de fecha ya implementados en TS08) para reducir el procesamiento innecesario en el backend. Elegir, en la medida de lo posible, regiones de datacenter de proveedores con compromisos de energía renovable. |
+| **6. Enfoque Global** | *Negativo:* El backend está desplegado en un datacenter específico (Azure, región Chile Central, sección 5.2.6), lo que implica que los datos de usuarios peruanos podrían quedar sujetos a legislaciones de protección de datos distintas a las locales. La app actualmente soporta principalmente PEN/USD (sección 4.9.2, `Household.currency`), lo que limita su aplicabilidad directa a otros mercados con distintas monedas o normativas de protección de datos financieros. *Positivo:* La arquitectura basada en API REST (5.2.7) y el diseño modular por *bounded contexts* (DDD, sección 4.8) facilitan una futura expansión internacional. | *Afectados:* Usuarios peruanos cuya información de ingresos y gastos reside en infraestructura fuera del país; usuarios potenciales en otros países no contemplados en el diseño actual de monedas y regulaciones. *Magnitud:* Media — actualmente el alcance del producto es local (Perú), pero el riesgo de cumplimiento normativo crece si el producto escala globalmente. | *Acciones:* Documentar explícitamente en el Acuerdo de Servicio SaaS (5.2.4.7) dónde se almacenan los datos y bajo qué jurisdicción. Diseñar el modelo de datos para soportar múltiples monedas y futuras normativas de protección de datos (ej. GDPR) desde el bounded context de Settings. Evaluar cifrado de extremo a extremo para los datos financieros sensibles antes de una expansión fuera de Perú. |
+| **7. Revelación de Peligros y Responsabilidad** | *Riesgo:* El análisis de seguridad estática (sección 6.2.1.2-B) identificó vulnerabilidades reales en el Backend: (1) credenciales de base de datos y connection string expuestas en texto plano en el archivo de despliegue; (2) clave secreta de firma JWT versionada en el repositorio; (3) política CORS permisiva (`AllowAnyOrigin`); (4) validación de entrada insuficiente al crear un hogar (permite valores fuera de rango, confirmado también por la auditoría UX externa, hallazgo n.º 7 de la sección 6.4.2.3). | *Afectados:* La totalidad de la base de usuarios de Budgetly, cuyos datos de ingresos, gastos y credenciales podrían quedar expuestos ante un actor malicioso que explote estas vulnerabilidades (calificación de seguridad SonarCloud: E, sección 6.2.1.2-A). | *Acciones:* Como indica el código ético del ingeniero, el equipo asume responsabilidad completa sobre estos hallazgos: se rotarán de inmediato las credenciales y el secreto JWT expuestos, se migrarán a variables de entorno o a un secrets manager del proveedor cloud, se restringirá la política CORS a los orígenes conocidos del Frontend y Landing Page, y se implementarán validaciones de formato y rango tanto en frontend como en backend (ver recomendaciones detalladas en 6.2.1.2-B). Estas acciones se priorizan por encima de nuevas funcionalidades, dado el riesgo directo a la privacidad financiera de los usuarios. |
+
+
+## Reflexión del equipo
+
+El desarrollo de Budgetly plantea una tensión ética central: para cumplir su propósito de equidad financiera, el producto necesita recolectar y exponer información históricamente considerada privada —el ingreso personal— dentro de un círculo de convivencia. Esta misma característica que constituye el valor diferencial del producto (ver sección 2.1.2, Estrategias frente a competidores) es también su principal fuente de riesgo ético, social y de seguridad.
+
+El equipo reconoce que la responsabilidad de ingeniería no termina en la implementación funcional del cálculo proporcional (`IncomeBased`, sección 4.9.2), sino que se extiende a proteger esa información sensible con el mismo rigor con el que se protegería información médica o de identidad, y a diseñar la experiencia de forma que la transparencia financiera fortalezca la convivencia en lugar de convertirse en una fuente adicional de conflicto o vigilancia dentro del hogar.
