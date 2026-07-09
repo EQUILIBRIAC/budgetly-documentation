@@ -1253,11 +1253,106 @@ La combinación de Gitflow, Pull Requests, CI automatizado y comunicación direc
 
 ### 8.3.4.1. Diseño de Entrevistas
 
-*Contenido pendiente.*
+El objetivo de estas entrevistas de validación To-Be es evaluar si la versión implementada de **Budgetly** comunica correctamente su propuesta de valor, si el usuario comprende el cálculo proporcional **IncomeBased** y si la experiencia de navegación de la página y la aplicación resulta clara para usuarios del segmento objetivo. La entrevista se realiza mostrando la landing page y, posteriormente, las pantallas principales de la aplicación relacionadas con registro de ingresos, creación de hogar, desglose de contribuciones y marcado de pagos.
+
+**Perfil del entrevistado:** personas que conviven con familiares, pareja o roommates y participan en la organización de gastos compartidos del hogar. Se priorizan participantes que hayan usado métodos manuales como Excel, notas, calculadora o acuerdos verbales para repartir pagos.
+
+**Duración estimada:** 15 a 20 minutos.
+
+**Materiales utilizados:**
+
+- Landing page de Budgetly.
+- Web Application desplegada en Firebase.
+- Capturas o demo del flujo To-Be: registro de ingresos, activación de IncomeBased, visualización del desglose y marcado de contribución pagada.
+- Formulario de registro de respuestas del entrevistador.
+
+**Guion de introducción:**
+
+> Gracias por participar. Te mostraremos una página y algunas pantallas de Budgetly, una aplicación para organizar gastos del hogar y calcular aportes proporcionales según los ingresos de cada miembro. No estamos evaluando tus conocimientos, sino si la propuesta se entiende, si la navegación es clara y qué mejoras podríamos aplicar antes del lanzamiento.
+
+#### Preguntas de contexto
+
+1. ¿Con quién vives actualmente y cómo suelen organizar los gastos del hogar?
+2. ¿Qué método usan hoy para dividir gastos compartidos: Excel, notas, calculadora, aplicaciones, acuerdos verbales u otro?
+3. ¿Qué tan justo consideras el método actual para repartir los pagos? ¿Por qué?
+4. ¿Han tenido confusiones, retrasos o desacuerdos por no saber cuánto debe pagar cada persona?
+5. ¿Qué información necesitarías ver para confiar en un cálculo automático de aportes?
+
+#### Preguntas sobre la landing page
+
+1. Al ver la página principal, ¿qué entiendes que ofrece Budgetly?
+2. ¿La propuesta de dividir gastos según ingresos se comunica de forma clara?
+3. ¿Qué sección de la página te genera más confianza o interés?
+4. ¿Hay alguna palabra, frase o beneficio que no se entienda bien?
+5. Después de revisar la página, ¿te registrarías para probar la aplicación? ¿Qué te haría decidirte?
+
+#### Preguntas sobre el flujo To-Be de la aplicación
+
+1. Al ver el registro de ingresos, ¿te queda claro qué dato debes ingresar?
+2. ¿El término "Ingreso mensual" te parece claro o necesitaría especificar si se refiere a ingreso neto o bruto?
+3. Al observar el desglose de contribuciones por gasto, ¿entiendes por qué cada miembro paga un monto diferente?
+4. ¿El cálculo proporcional te parece más justo que dividir el gasto en partes iguales? ¿En qué casos sí o no?
+5. ¿La pantalla de contribuciones te permite identificar fácilmente quién pagó, quién está pendiente y cuánto falta completar?
+6. ¿El flujo para marcar una contribución como pagada te parece claro y confiable?
+7. ¿Qué información adicional necesitarías antes de aceptar el monto calculado por Budgetly?
+
+#### Preguntas de percepción y cierre
+
+1. Del 1 al 5, ¿qué tan fácil te pareció entender la propuesta de Budgetly?
+2. Del 1 al 5, ¿qué tan justo percibes el reparto proporcional basado en ingresos?
+3. Del 1 al 5, ¿qué tanta confianza tendrías en usar Budgetly para gastos reales de tu hogar?
+4. ¿Qué funcionalidad te parece más útil: registro de ingresos, desglose de aportes, recordatorios, reportes o marcado de pagos?
+5. ¿Qué cambiarías de la página o de la aplicación para que sea más clara?
+6. ¿Recomendarías Budgetly a alguien que comparte gastos en su hogar? ¿Por qué?
+
+**Criterios de evaluación de la entrevista:**
+
+| Criterio | Qué se busca validar | Evidencia esperada |
+|---|---|---|
+| Comprensión de la propuesta | El usuario entiende que Budgetly reparte gastos según ingresos. | Explica la idea con sus propias palabras. |
+| Claridad del cálculo IncomeBased | El usuario comprende por qué los montos son distintos entre miembros. | Identifica la relación ingreso-aporte. |
+| Confianza en el sistema | El usuario considera razonable usar el cálculo en un caso real. | Declara confianza media o alta en la solución. |
+| Usabilidad del flujo | El usuario entiende las acciones principales sin explicación extensa. | Puede describir cómo registrar ingresos, ver aportes y marcar pagos. |
+| Intención de uso | El usuario muestra disposición a probar o recomendar Budgetly. | Respuesta positiva en preguntas de cierre. |
 
 ### 8.3.4.2. Registro de Entrevistas
 
-*Contenido pendiente.*
+En esta sección se registran las entrevistas de validación realizadas para evaluar la comprensión de la propuesta de valor de **Budgetly**, la claridad de la landing page y la percepción del usuario frente al flujo To-Be de la aplicación. Cada entrevista fue registrada en video como evidencia y se documenta con los datos solicitados: nombres y apellidos, edad, distrito, captura del cuadro de video, URL del video en Microsoft Stream, timing de inicio, duración y resumen descriptivo de las principales apreciaciones del entrevistado.
+
+#### Entrevista 1
+
+| Campo | Registro |
+|---|---|
+| Segmento objetivo | Representante del hogar |
+| Nombres y apellidos | Eduardo Gael Rivera Sosa |
+| Edad | 20 |
+| Distrito | San Juan De Lurigancho |
+| Entrevistador | Renzo Sebastián Uribe Livia |
+| Fecha de entrevista | 08/07/2026 |
+| Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaGael.png" alt="Screenshot de entrevista a Eduardo Gael Rivera Sosa" width="500"/></p> |
+| URL del video | https://youtu.be/Fc1dUrcYfIk |
+| Timing de inicio | 00:01 |
+| Duración | 7:59 |
+| Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
+| Resumen de la entrevista | Se mostro el flujo completo de la aplicacion a un representante de la familia, menciona que vive solo y basicamente solo el maneja sus propios gastos, al enseñarle la pagina quedo impresioado de las funcionalidades, despues de las preguntas el usuario final confirma que utilizaria la pagina con unicamente una sugerencia en el apartado de los gastos. |
+
+#### Entrevista 2
+
+| Campo | Registro |
+|---|---|
+| Segmento objetivo | Representante del hogar |
+| Nombres y apellidos | Alvaro Javier Gomez Huaman |
+| Edad | 20 |
+| Distrito | Ica |
+| Entrevistador | Renzo Sebastián Uribe Livia |
+| Fecha de entrevista | 08/07/2026 |
+| Screenshot del cuadro de video | <p align="center"><img src="../assets/chapter-08/EntrevistaAlvaro.png" alt="Screenshot de entrevista a Alvaro Javier Gomez Huaman" width="500"/></p> |
+| URL del video | https://youtu.be/m_0XP6vUGrs |
+| Timing de inicio | 00:01 |
+| Duración | 10:33 |
+| Tareas asignadas | 1. Revisar la landing page de Budgetly.<br>2. Explicar qué entiende sobre la propuesta de valor.<br>3. Observar el flujo To-Be de registro de ingresos y cálculo IncomeBased.<br>4. Comentar si el desglose de contribuciones resulta claro y justo.<br>5. Evaluar si usaría o recomendaría Budgetly para organizar gastos compartidos. |
+| Resumen de la entrevista | Se mostro el flujo completo de la aplicacion a un representante de gastos de la familia, menciona que vive con 2 hermanas por lo tanto tiene dificultades para organizar los gastos totales, se le presento la aplicacion y se mostro duditativo, ya que el sentia que algunas cosas podian mejorar y lo brindo de suferencia, informo que si la utilizaria si subsanaban esos ajustes e incluso recomendandola a otros usuarios, esta dispuesto a introducir sus gastos ya que la interfaz le parece adecuada y minimalista y transmite confianza. |
+
 
 ## 8.4. Experiment Aftermath & Analysis
 
