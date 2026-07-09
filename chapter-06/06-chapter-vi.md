@@ -38,9 +38,80 @@ Se han desarrollado un total de **17 pruebas unitarias** cubriendo los siguiente
 
 #### Evidencia de Ejecución
 
-A continuación, se presenta los archivos y el resultado de la ejecución de la suite de pruebas unitarias desde la terminal del sistema:
+A continuación, se presenta los archivos, el codigo de alguna prueba y el resultado de la ejecución de la suite de pruebas unitarias desde la terminal del sistema:
 
 <img src="../assets/chapter-06/Unit-Tests-Files.png" alt="Archivos de Pruebas Unitarias" width="600"/>
+
+```csharp
+using FluentAssertions;
+using Xunit;
+using System;
+using com.split.backend.Bills.Domain.Models.Aggregates;
+using com.split.backend.Bills.Domain.Models.Commands;
+
+namespace com.split.backend.Tests.Bills.Domain
+{
+    public class BillTests
+    {
+        // Prueba 1: Validamos que el constructor,, usando el Command, asigne todo correctamente
+        [Fact]
+        public void Constructor_WithCreateBillCommand_ShouldInitializePropertiesCorrectly()
+        {
+            // Arrange
+            var expectedHouseholdId = "HH-12345";
+            var expectedDescription = "Recibo de Electricidad";
+            var expectedAmount = 150.75m;
+            var expectedCreatedBy = 1L;
+            var expectedPaymentDate = "2026-05-15";
+
+            var command = new CreateBillCommand(
+                expectedHouseholdId,
+                expectedDescription,
+                expectedAmount,
+                expectedCreatedBy,
+                expectedPaymentDate
+            );
+
+            // Act
+            var bill = new Bill(command);
+
+            // Assert
+            bill.Should().NotBeNull();
+            bill.Id.Should().StartWith("BG");
+            bill.HouseholdId.Should().Be(expectedHouseholdId);
+            bill.Description.Should().Be(expectedDescription);
+            bill.Amount.Should().Be(expectedAmount);
+            bill.CreatedBy.Should().Be(expectedCreatedBy);
+            bill.PaymentDate.Should().Be(DateTime.Parse(expectedPaymentDate));
+        }
+
+        // Prueba 2: Validamos el otro constructor
+        [Fact]
+        public void Constructor_WithDirectParameters_ShouldInitializePropertiesCorrectly()
+        {
+            // Arrange
+            var householdId = "HH-98765";
+            var description = "Recibo de Agua";
+            var amount = 45.0m;
+            var createdBy = 2L;
+            var paymentDate = "2026-06-01";
+
+            // Act
+            var bill = new Bill(householdId, description, amount, createdBy, paymentDate);
+
+            // Assert
+            bill.Should().NotBeNull();
+            bill.Id.Should().StartWith("BG");
+            bill.HouseholdId.Should().Be(householdId);
+            bill.Description.Should().Be(description);
+            bill.Amount.Should().Be(amount);
+            bill.CreatedBy.Should().Be(createdBy);
+            bill.CreatedDate.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+        }
+    }
+}
+```
+
 <img src="../assets/chapter-06/Unit-Tests-Summary.png" alt="Ejecución de Pruebas Unitarias" width="600"/>
 
 
@@ -71,6 +142,79 @@ Se han implementado **5 pruebas de integración críticas** que cubren flujos de
 A continuación, se detalla el reporte de ejecución de la suite de pruebas de integración. Estas pruebas fueron aisladas mediante filtros de ejecución para validar exclusivamente la interoperabilidad entre los servicios de aplicación y la capa de persistencia (Base de Datos en Memoria).
 
 <img src="../assets/chapter-06/Integration-Tests-Files.png" alt="Ejecución de Pruebas de Integración" width="600"/>
+
+```csharp
+using com.split.backend.Households.Application.CommandServices;
+using com.split.backend.Households.Domain.Models.Aggregates;
+using com.split.backend.Households.Domain.Models.Commands;
+using com.split.backend.Households.Infrastructure.Persistence.EFC.Repositories;
+using com.split.backend.Shared.Infrastructure.Persistence.EFC.Configuration;
+using com.split.backend.Shared.Infrastructure.Persistence.EFC.Repositories;
+using com.split.backend.IAM.Domain.Repositories;
+using com.split.backend.IAM.Domain.Model.Aggregates;
+using com.split.backend.HouseholdMembers.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
+using FluentAssertions;
+using Xunit;
+using Moq;
+
+namespace com.split.backend.Tests.Households.Application
+{
+    public class HouseHoldIntegrationTests
+    {
+        [Fact]
+        public async Task HandleCreateHousehold_ShouldPersistInDatabase()
+        {
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase("TestDb_Households")
+                .Options;
+
+            using var context = new AppDbContext(options);
+            context.Database.EnsureCreated();
+
+            var repository = new HouseHoldRepository(context);
+            var unitOfWork = new UnitOfWork(context);
+
+            var userRepository = new Mock<IUserRepository>();
+            userRepository.Setup(r => r.FindByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(new User { Id = 1 });
+
+            var memberRepository = new Mock<IHouseholdMemberRepository>();
+
+            var service = new HouseHoldCommandService(
+                repository,
+                userRepository.Object,
+                memberRepository.Object,
+                unitOfWork
+            );
+
+            var householdName = "Hogar de Integracion Test";
+
+            var command = new CreateHouseholdCommand(
+                Id: null,
+                Name: householdName,
+                RepresentativeId: 1L,
+                Currency: "USD",
+                Description: "Test",
+                MemberCount: 2,
+                StartDate: DateTime.UtcNow,
+                CreatedAt: null,
+                UpdatedAt: null
+            );
+
+            var result = await service.Handle(command);
+
+            result.Should().NotBeNull();
+
+            var household = await context.Set<HouseHold>()
+                .FirstOrDefaultAsync(h => h.Name == householdName);
+
+            household.Should().NotBeNull();
+            household.Name.Should().Be(householdName);
+        }
+    }
+}
+```
 
 <img src="../assets/chapter-06/Integration-Tests-Summary.png" alt="Resumen de Pruebas de Integración" width="600"/>
 
